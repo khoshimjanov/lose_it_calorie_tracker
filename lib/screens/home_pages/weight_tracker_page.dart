@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lose_it_calory_tracker/provider/auth.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/main_page_safe_area.dart';
-import 'package:lose_it_calory_tracker/widgets/safe_area_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/register_form.dart';

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/main_page_safe_area.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/settings_page/list_tile_group.dart';
-import 'package:lose_it_calory_tracker/widgets/main_page/settings_page/personal_info.dart';
+
+import '../../../widgets/main_page/settings_page/personal_info.dart';
 
 enum HeightType {
   feet('ft/in'),
@@ -20,9 +21,9 @@ enum WeightType {
   final String message;
 }
 
-HeightType heightType = HeightType.cm;
+HeightType heightType = HeightType.feet;
 
-WeightType weightType = WeightType.kg;
+WeightType weightType = WeightType.lb;
 
 class Settings extends StatefulWidget {
   static const routeName = '/Settings';
@@ -37,13 +38,12 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
- 
       body: Column(
         children: [
           const MainPageSafeArea(
             text: 'Settings',
           ),
-          // PersonalInfo(heightType: heightType, weightType: weightType),
+          PersonalInfo(heightType: heightType, weightType: weightType),
           ListTileGroup(
             heightValueChanged: (value) {
               if (value == 0) {

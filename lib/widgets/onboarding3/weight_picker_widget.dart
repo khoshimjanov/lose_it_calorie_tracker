@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lose_it_calory_tracker/widgets/onboarding2_widgets/custom_sliding_segmented_control.dart';
+import 'package:lose_it_calory_tracker/widgets/onboarding2_widgets/custom_onboarding_sliding_segmented_control.dart';
 import 'package:lose_it_calory_tracker/widgets/onboarding3/weight_choose_types/weight_kg_show.dart';
 import 'package:lose_it_calory_tracker/widgets/onboarding3/weight_choose_types/weight_lb_show.dart';
 import 'package:lose_it_calory_tracker/widgets/onboarding3/weight_choose_types/weight_stlb_show.dart';
-
 
 import '../../screens/home_pages/settings_page/settings_page.dart';
 
@@ -25,21 +24,44 @@ class _WeightPickerWidgetState extends State<WeightPickerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-          child: CustomSlidingSegmentedControl(
-              children: [ WeightType.lb.message,
-                    WeightType.stLb.message,
-                    WeightType.kg.message], onValueChanged: _onSegmentTapped,),
-       
-          ),
-      if (_selectedIndex == 0)
-        const WeightLbWidget()
-      else if (_selectedIndex == 1)
-        const WeightStLbWidget()
-      else
-        const WeightKgWidget()
-    ],);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Choose a unit of measure for height'),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: CustomOnboardingSlidingSegmentedControl(
+                children: [
+                  WeightType.lb.message,
+                  WeightType.stLb.message,
+                  WeightType.kg.message
+                ],
+                onValueChanged: _onSegmentTapped,
+              ),
+            ),
+            const Text('What is your current weight?'),
+            Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: _selectedIndex == 0
+                    ? const WeightLbWidget()
+                    : _selectedIndex == 1
+                        ? const WeightStLbWidget()
+                        : const WeightKgWidget(),),
+            const Text('How much weight do you want to be?'),
+            Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: _selectedIndex == 0
+                    ? const AimWeightLbWidget()
+                    : _selectedIndex == 1
+                        ? const AimWeightStLbWidget()
+                        : const AimWeightKgWidget(),)
+          ],
+        ),
+      ),
+    );
   }
 }

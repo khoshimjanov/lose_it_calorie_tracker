@@ -19,7 +19,7 @@ class MainOnboarding extends StatefulWidget {
   State<MainOnboarding> createState() => _MainOnboardingState();
 }
 
-class _MainOnboardingState extends State<MainOnboarding> {
+class _MainOnboardingState extends State<MainOnboarding> { 
   final PageController _pageController = PageController();
   @override
   void dispose() {

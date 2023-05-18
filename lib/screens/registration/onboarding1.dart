@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lose_it_calory_tracker/provider/register_form.dart';
-import 'package:provider/provider.dart';
+
 import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/date_input.dart';
 import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/gender_input.dart';
 import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/name_input.dart';
@@ -8,7 +7,7 @@ import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/name_input.da
 
 class OnboardingScreen1 extends StatefulWidget {
   static const routeName = '/OnboardingScreen';
-  OnboardingScreen1({super.key});
+ const OnboardingScreen1({super.key});
 
   @override
   State<OnboardingScreen1> createState() => _OnboardingScreen1State();
@@ -24,11 +23,11 @@ class _OnboardingScreen1State extends State<OnboardingScreen1> {
 // String? name;
   @override
   Widget build(BuildContext context) {
-final person= Provider.of<RegisterForm>(context).person.birthdate;
-    return Scaffold(
+// final person= Provider.of<RegisterForm>(context).person.birthdate;
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: const[
+          children: [
              Padding(
               padding: EdgeInsets.all(20.0),
               child: Text(

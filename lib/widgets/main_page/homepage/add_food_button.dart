@@ -7,20 +7,20 @@ class AddFoodButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: TextButton(
-          onPressed: action,
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      child: InkWell(
+          borderRadius: BorderRadius.circular(24),
+          onTap: action,
           child: Ink(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             decoration: BoxDecoration(
-              border:
-                  Border.all(color: Color.fromARGB(255, 223, 30, 16), width: 1),
+              border: Border.all(color: const Color.fromARGB(255, 223, 30, 16)),
               borderRadius: BorderRadius.circular(24),
             ),
             child: const Center(
               child: Text(
                 'ADD FOOD',
-                style:  TextStyle(
+                style: TextStyle(
                     color: Color.fromARGB(255, 196, 40, 28), fontSize: 17),
               ),
             ),

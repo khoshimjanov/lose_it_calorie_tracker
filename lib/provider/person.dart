@@ -22,7 +22,7 @@ class Person {
   });
 
   Person copyWith(String? name, DateTime? birthdate, Gender? gender,
-      Height? height, Weight? weight, Weight? aimweight) {
+      Height? height, Weight? weight, Weight? aimweight,) {
     return Person(
         id: '',
         name: name ?? this.name,

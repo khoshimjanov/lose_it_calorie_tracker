@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:lose_it_calory_tracker/provider/auth.dart';
+import 'package:lose_it_calory_tracker/provider/register_form.dart';
 import 'package:lose_it_calory_tracker/screens/subscription_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +14,6 @@ class SupporPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CupertinoNavigationBar(
-        automaticallyImplyLeading: true,
         middle: Text('Support'),
       ),
       body: Center(
@@ -32,17 +32,20 @@ class SupporPage extends StatelessWidget {
                               Navigator.of(context).pop();
                               return;
                             },
-                            child: const Text('No')),
+                            child: const Text('No'),),
                         CupertinoButton(
                             onPressed: () {
                               Provider.of<Auth>(context, listen: false)
                                   .logOut();
+                              Provider.of<RegisterForm>(context, listen: false)
+                                  .logOut();
+                                  
                               Navigator.of(context)
                                   .pushNamed(SubscriptionScreen.routeName);
                             },
-                            child: const Text('Yes')),
+                            child: const Text('Yes'),),
                       ],
-                    ))),
+                    ),),),
       ),
     );
   }

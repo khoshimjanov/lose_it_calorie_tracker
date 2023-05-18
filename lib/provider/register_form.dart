@@ -5,13 +5,41 @@ import 'package:lose_it_calory_tracker/provider/weight.dart';
 
 import '../widgets/onboarding1_widgets/gender_input.dart';
 
-class RegisterForm with ChangeNotifier{
-  Person person=Person(name: null, id: '1', birthdate: null, gender: null, height: null, weight: null, aimweight: null);
- void addPersonName(String name) {
-    
+class RegisterForm with ChangeNotifier {
+  Person person = Person(
+      name: null,
+      id: '1',
+      birthdate: null,
+      gender: Gender.male,
+      height: null,
+      weight: null,
+      aimweight: null,);
+  void addPersonName(String name) {
     person.name = name;
     notifyListeners();
     print('name: ${person.name}');
+  }
+
+  void logOut() {
+    person = Person(
+        name: null,
+        id: '1',
+        birthdate: null,
+        gender: Gender.male,
+        height: null,
+        weight: null,
+        aimweight: null);
+  }
+
+  Future<void> addPerson(Person newperson) async {
+    person = Person(
+        name: person.name,
+        id: '1',
+        birthdate: newperson.birthdate,
+        gender: newperson.gender,
+        height: newperson.height,
+        weight: newperson.weight,
+        aimweight: newperson.aimweight);
   }
 
   void addPersonBirthday(DateTime birthdate) {

@@ -19,7 +19,6 @@ class AddBreakFast extends StatelessWidget {
         action: (value) {},
       ),
       appBar: CupertinoNavigationBar(
-        automaticallyImplyLeading: true,
         border: Border.lerp(null, null, 0),
         trailing: TextButton(
           child: const Text(
@@ -29,24 +28,26 @@ class AddBreakFast extends StatelessWidget {
           onPressed: () {},
         ),
       ),
-      body: Column(children: [
-        MainPageSafeArea(text: 'Breakfast'),
-        Expanded(
-            child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SvgPicture.asset(Assets.images.breakfastimage),
-           const   Padding(
-                padding: EdgeInsets.all(10),
-                child: Text('Add the food you have eaten'),
-              )
-            ],
+      body: Column(
+        children: [
+          MainPageSafeArea(text: 'Breakfast'),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(Assets.images.breakfastimage),
+                const Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text('Add the food you have eaten'),
+                )
+              ],
+            ),
           ),
-        )),
-        AddFoodButton(
-          action: () {},
-        )
-      ]),
+          AddFoodButton(
+            action: () {},
+          )
+        ],
+      ),
     );
   }
 }

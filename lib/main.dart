@@ -16,6 +16,7 @@ import 'package:lose_it_calory_tracker/screens/subscription_screen.dart';
 import 'package:lose_it_calory_tracker/screens/splash_screen.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/homepage/add_breakfast_widget.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/homepage/add_dinner_widget.dart';
+import 'package:lose_it_calory_tracker/widgets/main_page/homepage/add_lunch_widget.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/homepage/add_snacks_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -70,6 +71,7 @@ class MyApp extends StatelessWidget {
           Settings.routeName: (context) => const Settings(),
           AddBreakFast.routeName: (context) => const AddBreakFast(),
           AddDinner.routeName: (context) => const AddDinner(),
+          AddLunch.routeName: (context) => AddLunch(),
           AddSnacks.routeName: (context) => const AddSnacks(),
           SupporPage.routeName: (context) => const SupporPage()
         },

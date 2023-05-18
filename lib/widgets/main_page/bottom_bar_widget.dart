@@ -12,7 +12,7 @@ class BottomBarWidget extends StatelessWidget {
       {super.key,
       required this.selectedIndex,
       required this.pageController,
-      required this.action});
+      required this.action,});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class BottomBarWidget extends StatelessWidget {
               onPressed: () {
                 pageController.animateToPage(0,
                     duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeIn);
+                    curve: Curves.easeIn,);
               },
               icon: SvgPicture.asset(
                 Assets.icons.chosenHome,
@@ -36,8 +36,8 @@ class BottomBarWidget extends StatelessWidget {
                     selectedIndex == 0
                         ? Colors.red
                         : Color.fromARGB(255, 253, 135, 135),
-                    BlendMode.srcIn),
-              )),
+                    BlendMode.srcIn,),
+              ),),
           label: 'Home',
           tooltip: 'Back to home',
         ),
@@ -49,22 +49,22 @@ class BottomBarWidget extends StatelessWidget {
                     selectedIndex == 1
                         ? Colors.red
                         : Color.fromARGB(255, 253, 135, 135),
-                    BlendMode.srcIn),
+                    BlendMode.srcIn,),
                 Assets.icons.chart,
               ),
               onPressed: () {
                 pageController.animateToPage(1,
                     duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeIn);
+                    curve: Curves.easeIn,);
               },
             ),
-            label: 'Weight Tracker'),
+            label: 'Weight Tracker',),
         BottomNavigationBarItem(
             icon: IconButton(
               onPressed: () {
                 pageController.animateToPage(2,
                     duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeIn);
+                    curve: Curves.easeIn,);
               },
               icon: SvgPicture.asset(
                 Assets.icons.macronutrients,
@@ -72,16 +72,16 @@ class BottomBarWidget extends StatelessWidget {
                     selectedIndex == 2
                         ? Colors.red
                         : Color.fromARGB(255, 253, 135, 135),
-                    BlendMode.srcIn),
+                    BlendMode.srcIn,),
               ),
             ),
-            label: 'Macronutrients'),
+            label: 'Macronutrients',),
         BottomNavigationBarItem(
             icon: IconButton(
                 onPressed: () {
                   pageController.animateToPage(3,
                       duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeIn);
+                      curve: Curves.easeIn,);
                 },
                 icon: SvgPicture.asset(
                   Assets.icons.settings,
@@ -89,9 +89,9 @@ class BottomBarWidget extends StatelessWidget {
                       selectedIndex == 3
                           ? Colors.red
                           : Color.fromARGB(255, 253, 135, 135),
-                      BlendMode.srcIn),
-                )),
-            label: 'Settings'),
+                      BlendMode.srcIn,),
+                ),),
+            label: 'Settings',),
       ],
     );
   }

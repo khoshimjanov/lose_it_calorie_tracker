@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 import '../../gen/assets.gen.dart';
-import '../../provider/auth.dart';
 import '../../provider/register_form.dart';
 
 enum Gender {

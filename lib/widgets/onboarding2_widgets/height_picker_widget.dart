@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lose_it_calory_tracker/provider/height.dart';
-import 'package:lose_it_calory_tracker/widgets/onboarding2_widgets/custom_sliding_segmented_control.dart';
 import 'package:lose_it_calory_tracker/widgets/onboarding2_widgets/height_input_widget.dart';
 import 'package:lose_it_calory_tracker/widgets/onboarding3/weight_picker_item.dart';
 import 'package:provider/provider.dart';
@@ -8,23 +7,16 @@ import 'package:provider/provider.dart';
 import '../../provider/register_form.dart';
 
 class HeightPickerWidget extends StatefulWidget {
-  const HeightPickerWidget({super.key});
+  final bool isCentimentre;
+  final bool isSettings;
+  const HeightPickerWidget(
+      {super.key, required this.isCentimentre, this.isSettings = false});
 
   @override
   _HeightPickerWidgetState createState() => _HeightPickerWidgetState();
 }
 
 class _HeightPickerWidgetState extends State<HeightPickerWidget> {
-  bool isCentimentre = true;
-  int _selectedIndex = 0;
-
-  // void _onSegmentTapped(int? index) {
-  //   setState(() {
-  //     _selectedIndex = index!;
-  //     isCentimentre = !isCentimentre;
-  //   });
-  // }
-
   int convertFeetToCm(int feet, int inches) {
     final double totalInches = (feet * 12) + inches.toDouble();
     final double cm = totalInches * 2.54;
@@ -128,48 +120,24 @@ class _HeightPickerWidgetState extends State<HeightPickerWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(bottom: 10),
-                child: Text('Choose a unit of measure for height'),
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: CustomSlidingSegmentedControl(
-                  children: const [
-                    'ft/n',
-                    'cm',
-                  ],
-                  onValueChanged: (value) {
-                    _selectedIndex = value;
-                    isCentimentre = !isCentimentre;
-                    setState(() {});
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 30),
         ),
-        if (isCentimentre)
+        if (!widget.isCentimentre)
           HeightInput(
             action: () {
               _showFeetHeightPicker();
             },
             text: '$_feet\' $_inches"',
             heightType: 'ft/in',
+            isSettings: widget.isSettings,
           )
         else
           HeightInput(
             action: _showCmHeightPicker,
             text: '$_heightInCm',
             heightType: 'cm',
+            isSettings: widget.isSettings,
           )
       ],
     );

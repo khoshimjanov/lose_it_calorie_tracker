@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 class CustomSlidingSegmentedControl extends StatefulWidget {
@@ -18,7 +20,6 @@ class CustomSlidingSegmentedControl extends StatefulWidget {
 class _CustomSlidingSegmentedControlState
     extends State<CustomSlidingSegmentedControl> with TickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _animation;
 
   int _selectedIndex = 0;
 
@@ -27,9 +28,8 @@ class _CustomSlidingSegmentedControlState
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
     );
-    _animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
   }
 
   @override
@@ -53,7 +53,7 @@ class _CustomSlidingSegmentedControlState
       padding: const EdgeInsets.all(3.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.0),
-        color: Colors.grey[300],
+        color: const Color.fromARGB(255, 234, 229, 229),
       ),
       child: Stack(
         children: [
@@ -64,16 +64,11 @@ class _CustomSlidingSegmentedControlState
                   onTap: () => _onValueChanged(index),
                   child: Container(
                     alignment: Alignment.center,
-                    padding: const EdgeInsets.all(2.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     child: Text(
                       widget.children[index],
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
                     ),
                   ),
                 ),
@@ -84,15 +79,15 @@ class _CustomSlidingSegmentedControlState
             alignment: Alignment(
                 widget.children.length == 2
                     ? _selectedIndex * 2 - 1
-                    : _selectedIndex * 1 - 1,
-                0),
+                    : _selectedIndex - 1,
+                0,),
             curve: Curves.easeInOut,
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             child: Container(
               alignment: Alignment.center,
               width: widget.children.length == 2
-                  ? MediaQuery.of(context).size.width / 2.5
-                  : MediaQuery.of(context).size.width / 3.5,
+                  ? MediaQuery.of(context).size.width / 6
+                  : MediaQuery.of(context).size.width / 7,
               height: 25,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
@@ -100,9 +95,6 @@ class _CustomSlidingSegmentedControlState
               ),
               child: Text(
                 widget.children[_selectedIndex],
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
               ),
             ),
           ),

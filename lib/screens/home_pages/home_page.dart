@@ -28,15 +28,16 @@ class HomePage extends StatelessWidget {
               children: [
                 const Text('Your calorie intake today'),
                 Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  height: 12,
                   width: double.infinity,
-                  height: 12.0,
                   decoration: BoxDecoration(
                     color: Colors.grey[300],
                     borderRadius: BorderRadius.circular(10.20),
                   ),
                   child: FractionallySizedBox(
                     alignment: Alignment.centerLeft,
-                    widthFactor: 0.8, // 50% progress
+                    widthFactor: 0.5,
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.red,
@@ -45,9 +46,9 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text('0'),
                     Text("${2200 * 8}"),
                     Text('2200'),
@@ -55,45 +56,49 @@ class HomePage extends StatelessWidget {
                 ),
                 const Text('Meals Today'),
                 MealsWidget(
-                    mealName: 'Breakfast',
-                    calorieContent: '440 average calorie content',
-                    addMealText: 'ADD BREAKFAST',
-                    gradientColors: const [
-                      Color.fromRGBO(241, 127, 161, 1),
-                      Color.fromRGBO(218, 176, 126, 1)
-                    ],
-                    addMeal: () {
-                      Navigator.of(context).pushNamed(AddBreakFast.routeName);
-                    },),
+                  mealName: 'Breakfast',
+                  calorieContent: '440 average calorie content',
+                  addMealText: 'ADD BREAKFAST',
+                  gradientColors: const [
+                    Color.fromRGBO(241, 127, 161, 1),
+                    Color.fromRGBO(218, 176, 126, 1)
+                  ],
+                  addMeal: () {
+                    Navigator.of(context).pushNamed(AddBreakFast.routeName);
+                  },
+                ),
                 MealsWidget(
-                    mealName: 'Lunch',
-                    calorieContent: '549 average calorie content',
-                    addMealText: 'ADD LUNCH',
-                    gradientColors: const [
-                      Color.fromRGBO(68, 153, 99, 1),
-                      Color.fromRGBO(121, 199, 183, 1)
-                    ],
-                    addMeal: () {
-                      Navigator.of(context).pushNamed(AddLunch.routeName);
-                    },),
+                  mealName: 'Lunch',
+                  calorieContent: '549 average calorie content',
+                  addMealText: 'ADD LUNCH',
+                  gradientColors: const [
+                    Color.fromRGBO(68, 153, 99, 1),
+                    Color.fromRGBO(121, 199, 183, 1)
+                  ],
+                  addMeal: () {
+                    Navigator.of(context).pushNamed(AddLunch.routeName);
+                  },
+                ),
                 MealsWidget(
-                    mealName: 'Dinner',
-                    calorieContent: '769 average calorie content',
-                    addMealText: 'ADD DINNER',
-                    gradientColors: const [
-                      Color.fromRGBO(110, 154, 214, 1),
-                      Color.fromRGBO(156, 176, 214, 1)
-                    ],
-                    addMeal: () {},),
+                  mealName: 'Dinner',
+                  calorieContent: '769 average calorie content',
+                  addMealText: 'ADD DINNER',
+                  gradientColors: const [
+                    Color.fromRGBO(110, 154, 214, 1),
+                    Color.fromRGBO(156, 176, 214, 1)
+                  ],
+                  addMeal: () {},
+                ),
                 MealsWidget(
-                    mealName: 'Snacks',
-                    calorieContent: '440 average calorie content',
-                    addMealText: 'ADD SNACK',
-                    gradientColors: const [
-                      Color.fromRGBO(140, 123, 178, 1),
-                      Color.fromRGBO(225, 160, 169, 1)
-                    ],
-                    addMeal: () {},),
+                  mealName: 'Snacks',
+                  calorieContent: '440 average calorie content',
+                  addMealText: 'ADD SNACK',
+                  gradientColors: const [
+                    Color.fromRGBO(140, 123, 178, 1),
+                    Color.fromRGBO(225, 160, 169, 1)
+                  ],
+                  addMeal: () {},
+                ),
               ],
             ),
           ),

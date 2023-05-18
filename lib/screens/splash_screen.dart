@@ -4,7 +4,6 @@ import 'package:lose_it_calory_tracker/widgets/elevated_button_widget.dart';
 import 'package:lose_it_calory_tracker/widgets/info_icon_widget.dart';
 
 import '../gen/assets.gen.dart';
-import 'registration/onboarding1.dart';
 
 class SplashScreen extends StatelessWidget {
   static const routeName = '/spash_screen';

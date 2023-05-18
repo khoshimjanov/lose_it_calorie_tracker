@@ -7,8 +7,6 @@ import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/gender_input.
 
 import 'height.dart';
 
-// Sihn
-
 class Auth with ChangeNotifier {
   Person? _person;
 
@@ -16,9 +14,8 @@ class Auth with ChangeNotifier {
 
   Person? get person => _person;
 
-void addPerson(Person newperson) {
+  void addPerson(Person newperson) {
     _person = newperson;
-  
   }
 
   void logOut() {
@@ -33,22 +30,7 @@ void addPerson(Person newperson) {
 
   void logIn() {
     try {
-      DBHelper.logIn({
-        'id': _person!.id,
-        'name': _person!.name!,
-        'datetime': _person!.birthdate!.microsecondsSinceEpoch,
-        'gender': _person!.gender!.toString(),
-        'heightInCm': _person!.height!.cmHeight,
-        'heightInFeet': _person!.height!.feetHeight.toString(),
-        'weightInLb': _person!.weight!.lbWeight.toString(),
-        'weightInSt': _person!.weight!.stLbWeight.stone,
-        'weightInStLb': _person!.weight!.stLbWeight.lb.toString(),
-        'weightInKg': _person!.weight!.kgWeight.toString(),
-        'aimweightInLb': _person!.aimweight!.lbWeight.toString(),
-        'aimweightInSt': _person!.aimweight!.stLbWeight.stone,
-        'aimweightInStLb': _person!.aimweight!.stLbWeight.lb.toString(),
-        'aimweightInKg': _person!.aimweight!.kgWeight.toString(),
-      });
+      DBHelper.logIn(_person!);
     } catch (e) {
       print('error in entering is:$e');
     }
@@ -95,5 +77,9 @@ void addPerson(Person newperson) {
     }
   }
 
-  Future<void> update() async {}
+  Future<void> update(Person newperson) async {
+    DBHelper.update(newperson);
+    _person = newperson;
+    notifyListeners();
+  }
 }
