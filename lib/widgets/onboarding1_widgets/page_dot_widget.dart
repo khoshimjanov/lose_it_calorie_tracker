@@ -13,6 +13,6 @@ class PageDotWidget extends StatelessWidget {
         padding: const EdgeInsets.all(5),
         child: isSelected
             ? SvgPicture.asset(Assets.icons.redEllipse)
-            : SvgPicture.asset(Assets.icons.ellipse));
+            : SvgPicture.asset(Assets.icons.ellipse),);
   }
 }

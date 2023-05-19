@@ -35,7 +35,7 @@ class BottomBarWidget extends StatelessWidget {
                 colorFilter: ColorFilter.mode(
                     selectedIndex == 0
                         ? Colors.red
-                        : Color.fromARGB(255, 253, 135, 135),
+                        : const Color.fromARGB(255, 253, 135, 135),
                     BlendMode.srcIn,),
               ),),
           label: 'Home',
@@ -48,7 +48,7 @@ class BottomBarWidget extends StatelessWidget {
                 colorFilter: ColorFilter.mode(
                     selectedIndex == 1
                         ? Colors.red
-                        : Color.fromARGB(255, 253, 135, 135),
+                        : const Color.fromARGB(255, 253, 135, 135),
                     BlendMode.srcIn,),
                 Assets.icons.chart,
               ),
@@ -71,7 +71,7 @@ class BottomBarWidget extends StatelessWidget {
                 colorFilter: ColorFilter.mode(
                     selectedIndex == 2
                         ? Colors.red
-                        : Color.fromARGB(255, 253, 135, 135),
+                        : const Color.fromARGB(255, 253, 135, 135),
                     BlendMode.srcIn,),
               ),
             ),
@@ -88,7 +88,7 @@ class BottomBarWidget extends StatelessWidget {
                   colorFilter: ColorFilter.mode(
                       selectedIndex == 3
                           ? Colors.red
-                          : Color.fromARGB(255, 253, 135, 135),
+                          : const Color.fromARGB(255, 253, 135, 135),
                       BlendMode.srcIn,),
                 ),),
             label: 'Settings',),

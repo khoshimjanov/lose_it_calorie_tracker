@@ -14,7 +14,7 @@ required this.kgWeight,
 
 factory Weight.fromWeight( double lbWeight,
 StLb stlb,
-  double kgWeight){
+  double kgWeight,){
   return Weight(lbWeight: lbWeight, stLbWeight: stlb, kgWeight: kgWeight);
 }
 }

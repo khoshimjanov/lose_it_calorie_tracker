@@ -12,11 +12,11 @@ class MainPageSafeArea extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
       decoration: const BoxDecoration(
-          border: Border(bottom: BorderSide(color: Colors.red, width: 0.5))),
+          border: Border(bottom: BorderSide(color: Colors.red, width: 0.5)),),
       child: Text(
         text,
         style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
       ),
-    ));
+    ),);
   }
 }

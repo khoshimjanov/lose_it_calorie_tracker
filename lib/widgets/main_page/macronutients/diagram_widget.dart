@@ -5,7 +5,7 @@ class CircleDiagram extends StatelessWidget {
   final List<CircleElement> elements;
   final Color borderColor;
 
-  CircleDiagram({
+  const CircleDiagram({
     required this.radius,
     required this.elements,
     required this.borderColor,
@@ -28,9 +28,9 @@ class CircleDiagramPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    double radius = size.width / 2;
+    final double radius = size.width / 2;
 
-    Paint borderPaint = Paint()
+    final Paint borderPaint = Paint()
       ..color = borderColor
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.0;

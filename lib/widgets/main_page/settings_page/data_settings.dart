@@ -66,4 +66,3 @@ class _DataSettingsState extends State<DataSettings> {
     );
   }
 }
-

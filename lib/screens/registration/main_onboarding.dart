@@ -58,7 +58,7 @@ class _MainOnboardingState extends State<MainOnboarding> {
               },
              
               physics: const NeverScrollableScrollPhysics(),
-              children: [
+              children: const [
                 OnboardingScreen1(),
                 OnboardingScreen2(),
                 OnboardingScreen3(),

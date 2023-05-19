@@ -21,10 +21,10 @@ class AddFoodButton extends StatelessWidget {
               child: Text(
                 'ADD FOOD',
                 style: TextStyle(
-                    color: Color.fromARGB(255, 196, 40, 28), fontSize: 17),
+                    color: Color.fromARGB(255, 196, 40, 28), fontSize: 17,),
               ),
             ),
-          )),
+          ),),
     );
   }
 }

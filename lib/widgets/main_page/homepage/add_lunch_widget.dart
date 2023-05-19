@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lose_it_calory_tracker/gen/assets.gen.dart';
-import 'package:lose_it_calory_tracker/widgets/main_page/homepage/add_food_button.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/bottom_bar_widget.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/main_page_safe_area.dart';
 
@@ -30,7 +29,7 @@ class AddLunch extends StatelessWidget {
       ),
       body: Column(
         children: [
-          MainPageSafeArea(text: 'Breakfast'),
+          const MainPageSafeArea(text: 'Breakfast'),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

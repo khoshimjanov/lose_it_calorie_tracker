@@ -47,18 +47,18 @@ class _GenderInputState extends State<GenderInput> {
                 child: Ink(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Colors.grey),
-                      borderRadius: BorderRadius.circular(30)),
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(30),),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       SvgPicture.asset(gender == Gender.male
                           ? Assets.icons.radioButton2
-                          : Assets.icons.radioButton1),
+                          : Assets.icons.radioButton1,),
                       const Text(
                         'Male',
                         style: TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.w400),
+                            fontSize: 17, fontWeight: FontWeight.w400,),
                       )
                     ],
                   ),
@@ -81,25 +81,25 @@ class _GenderInputState extends State<GenderInput> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Colors.grey),
-                      borderRadius: BorderRadius.circular(30)),
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(30),),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       SvgPicture.asset(gender == Gender.female
                           ? Assets.icons.radioButton2
-                          : Assets.icons.radioButton1),
+                          : Assets.icons.radioButton1,),
                       const Text(
                         'Female',
                         style: TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.w400),
+                            fontSize: 17, fontWeight: FontWeight.w400,),
                       )
                     ],
                   ),
                 ),
               ),
             ),
-          ]),
+          ],),
         ],
       ),
     );

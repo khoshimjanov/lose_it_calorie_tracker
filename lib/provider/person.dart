@@ -30,6 +30,6 @@ class Person {
         gender: gender ?? this.gender,
         height: height ?? this.height,
         weight: weight ?? this.weight,
-        aimweight: aimweight ?? this.aimweight);
+        aimweight: aimweight ?? this.aimweight,);
   }
 }

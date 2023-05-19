@@ -7,9 +7,9 @@ class OnboardingScreen3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Column(
-        children: const [
+        children: [
           Padding(
             padding: EdgeInsets.all(15.0),
             child: Text(

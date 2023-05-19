@@ -15,7 +15,7 @@ class SubscriptionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isSignedIn = Provider.of<Auth>(context).isSignedIn;
+    final bool isSignedIn = Provider.of<Auth>(context).isSignedIn;
     return isSignedIn
         ? const MainScreen()
         : Scaffold(
@@ -32,16 +32,16 @@ class SubscriptionScreen extends StatelessWidget {
                             onPressed: () {
                               exit(1);
                             },
-                            icon: const Icon(Icons.close)),
+                            icon: const Icon(Icons.close),),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               elevation: 0,
                               shape: const StadiumBorder(
                                   side: BorderSide(
-                                      color: Colors.black, width: 0.2)),
+                                      width: 0.2,),),
                               foregroundColor: Colors.black,
                               backgroundColor:
-                                  const Color.fromRGBO(250, 250, 250, 0)),
+                                  const Color.fromRGBO(250, 250, 250, 0),),
                           child: const Text("Restore Purchases"),
                           onPressed: () {},
                         )
@@ -55,13 +55,13 @@ class SubscriptionScreen extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 20),
+                        horizontal: 20, vertical: 20,),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         InfoIconWidget(
                             icon: Assets.icons.barGraph1,
-                            text: 'All functions of calorie counter'),
+                            text: 'All functions of calorie counter',),
                         InfoIconWidget(
                           icon: Assets.icons.weightScale1,
                           text: 'Weight tracker',
@@ -86,8 +86,8 @@ class SubscriptionScreen extends StatelessWidget {
                                   gradient: const LinearGradient(colors: [
                                     Color.fromRGBO(252, 90, 68, 1),
                                     Color.fromRGBO(196, 20, 50, 1)
-                                  ]),
-                                  borderRadius: BorderRadius.circular(30)),
+                                  ],),
+                                  borderRadius: BorderRadius.circular(30),),
                               alignment: Alignment.center,
                               height: 50,
                               width: 300,
@@ -96,8 +96,8 @@ class SubscriptionScreen extends StatelessWidget {
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 17,
-                                    fontWeight: FontWeight.w600),
-                              ))),
+                                    fontWeight: FontWeight.w600,),
+                              ),),),
                       GestureDetector(
                           onTap: () {
                             Navigator.of(context)
@@ -109,8 +109,8 @@ class SubscriptionScreen extends StatelessWidget {
                                   gradient: const LinearGradient(colors: [
                                     Color.fromRGBO(252, 90, 68, 1),
                                     Color.fromRGBO(196, 20, 50, 1)
-                                  ]),
-                                  borderRadius: BorderRadius.circular(30)),
+                                  ],),
+                                  borderRadius: BorderRadius.circular(30),),
                               alignment: Alignment.center,
                               height: 50,
                               width: 300,
@@ -119,8 +119,8 @@ class SubscriptionScreen extends StatelessWidget {
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 17,
-                                    fontWeight: FontWeight.w600),
-                              ))),
+                                    fontWeight: FontWeight.w600,),
+                              ),),),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 40),
                         child: Row(

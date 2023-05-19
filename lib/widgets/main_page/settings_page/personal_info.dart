@@ -38,10 +38,10 @@ class PersonalInfo extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.grey[300]!),
+            border: Border.all(color: Colors.grey[300]!),
             borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(20),
-                topRight: Radius.circular(20))),
+                topRight: Radius.circular(20),),),
         child: Column(
           children: [
             ListTile(
@@ -53,7 +53,7 @@ class PersonalInfo extends StatelessWidget {
                     border: Border.all(width: 0.5),
                     borderRadius: const BorderRadius.all(
                       Radius.circular(20),
-                    )),
+                    ),),
                 child: Center(child: SvgPicture.asset(Assets.icons.camera)),
               ),
               title: Text(
@@ -77,12 +77,13 @@ class PersonalInfo extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
-                        child: SingleChildScrollView(child: DataSettings()),
+                        child: const SingleChildScrollView(child: DataSettings()),
                       ),
                     );
                   },
                   icon: SvgPicture.asset(Assets.icons.moreVert,
-                      color: const Color.fromRGBO(86, 86, 86, 1)),
+                      // ignore: deprecated_member_use
+                      color: const Color.fromRGBO(86, 86, 86, 1),),
                 ),
               ),
             ),
@@ -101,7 +102,7 @@ class PersonalInfo extends StatelessWidget {
                         ),
                         Text(heightType == HeightType.cm
                             ? '${person.height!.cmHeight} cm'
-                            : '${person.height!.feetHeight} ft/in'),
+                            : '${person.height!.feetHeight} ft/in',),
                       ],
                     ),
                   ),
@@ -124,7 +125,7 @@ class PersonalInfo extends StatelessWidget {
                             ? "${person.weight!.kgWeight} kg"
                             : (weightType == WeightType.lb
                                 ? "${person.weight!.lbWeight} lb"
-                                : "${person.weight!.stLbWeight.stone}st ${person.weight!.stLbWeight.lb}lb"))
+                                : "${person.weight!.stLbWeight.stone}st ${person.weight!.stLbWeight.lb}lb"),)
                       ],
                     ),
                   ),
@@ -147,7 +148,7 @@ class PersonalInfo extends StatelessWidget {
                             ? "${person.aimweight!.kgWeight} kg"
                             : (weightType == WeightType.lb
                                 ? "${person.aimweight!.lbWeight} lb"
-                                : "${person.aimweight!.stLbWeight.stone}st${person.aimweight!.stLbWeight.lb}lb"))
+                                : "${person.aimweight!.stLbWeight.stone}st${person.aimweight!.stLbWeight.lb}lb"),)
                       ],
                     ),
                   ),
@@ -173,7 +174,7 @@ class PersonalInfo extends StatelessWidget {
                           gradient: const LinearGradient(colors: [
                             Color.fromRGBO(252, 90, 68, 1),
                             Color.fromRGBO(196, 20, 50, 1)
-                          ])),
+                          ],),),
                       child: const Center(
                         child: Text(
                           'SWITCH TO PREMIUM',
@@ -188,6 +189,6 @@ class PersonalInfo extends StatelessWidget {
           ],
         ),
       ),
-    ));
+    ),);
   }
 }

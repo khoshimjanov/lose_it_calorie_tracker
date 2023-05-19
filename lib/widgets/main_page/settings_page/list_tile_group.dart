@@ -34,7 +34,7 @@ class ListTileGroup extends StatelessWidget {
                     children: [HeightType.feet.message, HeightType.cm.message],
                     onValueChanged: heightValueChanged,
                   ),
-                )),
+                ),),
             const Divider(),
             ListTile(
               leading: SvgPicture.asset(Assets.icons.weightScale),
@@ -57,14 +57,14 @@ class ListTileGroup extends StatelessWidget {
               leading: SvgPicture.asset(Assets.icons.shieldDone),
               title: const Text('Privacy Police'),
               trailing: IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.chevron_right)),
+                  onPressed: () {}, icon: const Icon(Icons.chevron_right),),
             ),
             const Divider(),
             ListTile(
               leading: SvgPicture.asset(Assets.icons.termsOfUse),
               title: const Text('Terms of Use'),
               trailing: IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.chevron_right)),
+                  onPressed: () {}, icon: const Icon(Icons.chevron_right),),
             ),
             const Divider(),
             InkWell(
@@ -78,12 +78,9 @@ class ListTileGroup extends StatelessWidget {
               ),
             ),
             const Divider(),
-          ]),
+          ],),
         ),
       ),
     );
   }
 }
-
-
-

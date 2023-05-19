@@ -10,7 +10,7 @@ class HeightPickerWidget extends StatefulWidget {
   final bool isCentimentre;
   final bool isSettings;
   const HeightPickerWidget(
-      {super.key, required this.isCentimentre, this.isSettings = false});
+      {super.key, required this.isCentimentre, this.isSettings = false,});
 
   @override
   _HeightPickerWidgetState createState() => _HeightPickerWidgetState();

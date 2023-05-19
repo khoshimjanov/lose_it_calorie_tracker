@@ -28,7 +28,7 @@ class RegisterForm with ChangeNotifier {
         gender: Gender.male,
         height: null,
         weight: null,
-        aimweight: null);
+        aimweight: null,);
   }
 
   Future<void> addPerson(Person newperson) async {
@@ -39,7 +39,7 @@ class RegisterForm with ChangeNotifier {
         gender: newperson.gender,
         height: newperson.height,
         weight: newperson.weight,
-        aimweight: newperson.aimweight);
+        aimweight: newperson.aimweight,);
   }
 
   void addPersonBirthday(DateTime birthdate) {
@@ -68,7 +68,7 @@ class RegisterForm with ChangeNotifier {
 
     notifyListeners();
     print(
-        'weight: l${person.weight?.lbWeight} s${person.weight?.stLbWeight.stone}.${person.weight?.stLbWeight.lb} k${person.weight?.kgWeight}');
+        'weight: l${person.weight?.lbWeight} s${person.weight?.stLbWeight.stone}.${person.weight?.stLbWeight.lb} k${person.weight?.kgWeight}',);
   }
 
   void addPersonaimWeight(Weight weight) {
@@ -76,6 +76,6 @@ class RegisterForm with ChangeNotifier {
 
     notifyListeners();
     print(
-        'aimweight: l${person.aimweight?.lbWeight} s${person.aimweight?.stLbWeight.stone}.${person.aimweight?.stLbWeight.lb} k${person.aimweight?.kgWeight}');
+        'aimweight: l${person.aimweight?.lbWeight} s${person.aimweight?.stLbWeight.stone}.${person.aimweight?.stLbWeight.lb} k${person.aimweight?.kgWeight}',);
   }
 }

@@ -30,7 +30,7 @@ class AddBreakFast extends StatelessWidget {
       ),
       body: Column(
         children: [
-          MainPageSafeArea(text: 'Breakfast'),
+          const MainPageSafeArea(text: 'Breakfast'),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

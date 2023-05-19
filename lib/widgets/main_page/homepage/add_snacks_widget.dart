@@ -19,7 +19,6 @@ class AddSnacks extends StatelessWidget {
         action: (value) {},
       ),
       appBar: CupertinoNavigationBar(
-        automaticallyImplyLeading: true,
         border: Border.lerp(null, null, 0),
         trailing: TextButton(
           child: const Text(
@@ -30,7 +29,7 @@ class AddSnacks extends StatelessWidget {
         ),
       ),
       body: Column(children: [
-        MainPageSafeArea(text: 'Breakfast'),
+        const MainPageSafeArea(text: 'Breakfast'),
         Expanded(
             child: SingleChildScrollView(
           child: Column(
@@ -42,11 +41,11 @@ class AddSnacks extends StatelessWidget {
               )
             ],
           ),
-        )),
+        ),),
         AddFoodButton(
           action: () {},
         )
-      ]),
+      ],),
     );
   }
 }

@@ -34,7 +34,7 @@ class NameInput extends StatelessWidget {
                   value = ' ';
                 }
                 Provider.of<RegisterForm>(context, listen: false).addPersonName(
-                    value.replaceFirst(value[0], value[0].toUpperCase()));
+                    value.replaceFirst(value[0], value[0].toUpperCase()),);
               },
               initialValue: name,
               decoration: const InputDecoration(

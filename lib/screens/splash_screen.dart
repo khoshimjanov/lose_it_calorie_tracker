@@ -14,8 +14,6 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          // mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
           // textBaseline: TextBaseline.values[1],
           children: [
             SafeArea(child: Assets.images.weightImage.image()),
@@ -36,9 +34,9 @@ class SplashScreen extends StatelessWidget {
                   ),
                   InfoIconWidget(
                       icon: Assets.icons.pieChart1,
-                      text: 'Follow a calorie budget'),
+                      text: 'Follow a calorie budget',),
                   InfoIconWidget(
-                      icon: Assets.icons.slim1, text: 'Reach your goals'),
+                      icon: Assets.icons.slim1, text: 'Reach your goals',),
                 ],
               ),
             ),
@@ -46,8 +44,8 @@ class SplashScreen extends StatelessWidget {
                 text: 'Get Started',
                 action: () {
                   Navigator.of(context).pushNamed(MainOnboarding.routeName);
-                }),
-          ]),
+                },),
+          ],),
     );
   }
 }

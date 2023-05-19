@@ -26,7 +26,7 @@ class _CustomOnboardingSlidingSegmentedControlState
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
     );
   }
 
@@ -83,9 +83,9 @@ class _CustomOnboardingSlidingSegmentedControlState
                 widget.children.length == 2
                     ? _selectedIndex * 2 - 1
                     : _selectedIndex * 1 - 1,
-                0),
+                0,),
             curve: Curves.easeInOut,
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             child: Container(
               alignment: Alignment.center,
               width: widget.children.length == 2
