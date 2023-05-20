@@ -73,7 +73,7 @@ class Auth with ChangeNotifier {
       // Provider.of<RegisterForm>(listen: false);
       notifyListeners();
     } catch (e) {
-      print('error in fetchin data:$e');
+      print('error in fetching data:$e');
     }
   }
 
