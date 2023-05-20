@@ -40,22 +40,17 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             appBarTheme: const AppBarTheme(),
             primaryColor: Colors.red,
-            buttonTheme: const ButtonThemeData(
-
-                // textTheme: ButtonTextTheme.accent,
-                ),
-            // accentColor: Colors.white,
-
+            buttonTheme: const ButtonThemeData(),
             textTheme: const TextTheme(
               bodySmall: TextStyle(color: Colors.white, fontSize: 15),
               titleSmall: TextStyle(color: Color.fromRGBO(86, 86, 86, 1)),
               titleLarge: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
-              // bodyMedium: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
               bodyLarge: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600),
-            )),
+                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
+              ),
+            ),),
         home: const CheckScreen(),
         routes: {
           SubscriptionScreen.routeName: (context) => const SubscriptionScreen(),

@@ -13,18 +13,13 @@ enum Gender {
   final String message;
 }
 
-class GenderInput extends StatefulWidget {
+class GenderInput extends StatelessWidget {
   const GenderInput({super.key});
 
   @override
-  State<GenderInput> createState() => _GenderInputState();
-}
-
-Gender gender = Gender.male;
-
-class _GenderInputState extends State<GenderInput> {
-  @override
   Widget build(BuildContext context) {
+    final state = Provider.of<RegisterForm>(context);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
@@ -34,73 +29,78 @@ class _GenderInputState extends State<GenderInput> {
             padding: EdgeInsets.symmetric(vertical: 5.0),
             child: Text('Gender'),
           ),
-          Row(children: [
-            Expanded(
-              child: InkWell(
-                borderRadius: BorderRadius.circular(30),
-                onTap: () {
-                  gender = Gender.male;
-                  setState(() {});
-                  Provider.of<RegisterForm>(context, listen: false)
-                      .addPersonGender(gender);
-                },
-                child: Ink(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(30),),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SvgPicture.asset(gender == Gender.male
-                          ? Assets.icons.radioButton2
-                          : Assets.icons.radioButton1,),
-                      const Text(
-                        'Male',
-                        style: TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.w400,),
-                      )
-                    ],
+          Row(
+            children: Gender.values
+                .map(
+                  (gender) => Expanded(
+                    child: GenderModelWidget(
+                      onChange: () =>
+                          Provider.of<RegisterForm>(context, listen: false)
+                              .addPersonGender(gender),
+                      title: gender.message,
+                      isSelected: state.person.gender == gender,
+                    ),
                   ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: InkWell(
-                borderRadius: BorderRadius.circular(30),
-                onTap: () {
-                  gender = Gender.female;
-                  setState(() {});
-                  Provider.of<RegisterForm>(context, listen: false)
-                      .addPersonGender(gender);
-                },
-                child: Ink(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(30),),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SvgPicture.asset(gender == Gender.female
-                          ? Assets.icons.radioButton2
-                          : Assets.icons.radioButton1,),
-                      const Text(
-                        'Female',
-                        style: TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.w400,),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],),
+                )
+                .toList(),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class GenderModelWidget extends StatelessWidget {
+  final VoidCallback onChange;
+  final String title;
+  final bool isSelected;
+
+  const GenderModelWidget({
+    super.key,
+    required this.onChange,
+    required this.title,
+    required this.isSelected,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(30),
+        onTap: onChange,
+        child: Ink(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 10,
+          ),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: SvgPicture.asset(
+                  isSelected
+                      ? Assets.icons.selectedButton
+                      : Assets.icons.unselectedButton,
+                ),
+              ),
+              Expanded(
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

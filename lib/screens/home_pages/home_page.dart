@@ -1,11 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lose_it_calory_tracker/provider/auth.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/homepage/add_breakfast_widget.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/homepage/add_lunch_widget.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/homepage/meals_widget.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/main_page_safe_area.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   static const routeName = '/HomePage';
@@ -17,7 +14,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size(double.infinity, 50),
-        child: MainPageSafeArea(text: 'Homepage'),
+        child: MainPageSafeArea(text: 'Homepage'), 
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -25,7 +22,7 @@ class HomePage extends StatelessWidget {
           children: [
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -49,12 +46,12 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('0'),
-                      Text("${2200 * 8}"),
-                      Text('2200'),
+                      const Text('0'),
+                      Text("${(2200 * 0.8).toInt()}"),
+                      const Text('2200'),
                     ],
                   ),
                   const Text('Meals Today'),

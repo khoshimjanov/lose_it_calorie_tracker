@@ -75,52 +75,8 @@ class SubscriptionScreen extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.of(context)
-                                .pushNamed(SplashScreen.routeName);
-                          },
-                          child: Container(
-                              margin: const EdgeInsets.only(bottom: 10),
-                              decoration: BoxDecoration(
-                                  gradient: const LinearGradient(colors: [
-                                    Color.fromRGBO(252, 90, 68, 1),
-                                    Color.fromRGBO(196, 20, 50, 1)
-                                  ],),
-                                  borderRadius: BorderRadius.circular(30),),
-                              alignment: Alignment.center,
-                              height: 50,
-                              width: 300,
-                              child: const Text(
-                                "\$3.99 per week",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w600,),
-                              ),),),
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.of(context)
-                                .pushNamed(SplashScreen.routeName);
-                          },
-                          child: Container(
-                              margin: const EdgeInsets.only(bottom: 10),
-                              decoration: BoxDecoration(
-                                  gradient: const LinearGradient(colors: [
-                                    Color.fromRGBO(252, 90, 68, 1),
-                                    Color.fromRGBO(196, 20, 50, 1)
-                                  ],),
-                                  borderRadius: BorderRadius.circular(30),),
-                              alignment: Alignment.center,
-                              height: 50,
-                              width: 300,
-                              child: const Text(
-                                "\$9.99 per three months",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w600,),
-                              ),),),
+                    const  PaymentTypeButton(title: "\$3.99 per week"),
+                    const  PaymentTypeButton(title:    "\$9.99 per three months",),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 40),
                         child: Row(
@@ -143,5 +99,46 @@ class SubscriptionScreen extends StatelessWidget {
               ),
             ),
           );
+  }
+}
+
+
+
+
+
+
+
+class PaymentTypeButton extends StatelessWidget {
+  final String title;
+  const PaymentTypeButton({
+    super.key,
+    required this.title,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () {
+          Navigator.of(context)
+              .pushNamed(SplashScreen.routeName);
+        },
+        child: Container(
+            margin: const EdgeInsets.only(bottom: 10),
+            decoration: BoxDecoration(
+                gradient: const LinearGradient(colors: [
+                  Color.fromRGBO(252, 90, 68, 1),
+                  Color.fromRGBO(196, 20, 50, 1)
+                ],),
+                borderRadius: BorderRadius.circular(30),),
+            alignment: Alignment.center,
+            height: 50,
+            width: 300,
+            child:  Text( 
+             title,
+              style:const TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,),
+            ),),);
   }
 }

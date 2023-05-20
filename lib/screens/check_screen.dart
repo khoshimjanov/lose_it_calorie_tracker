@@ -7,10 +7,6 @@ import '../provider/auth.dart';
 class CheckScreen extends StatelessWidget {
   const CheckScreen({super.key});
 
-// late Future<void> futureFunction;
-// var person=Provider.of<RegisterForm>(context,);
-
-// @override
 
 
   @override

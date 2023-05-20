@@ -35,7 +35,7 @@ class _WeightLbWidgetState extends State<WeightLbWidget> {
       context: context,
       builder: (BuildContext context) {
         return ShowLBWeightPicker(
-          action1: (value) {
+          onLbChange: (value) {
             setState(() {
               _lb = value + 100;
               Provider.of<RegisterForm>(context, listen: false).addPersonWeight(
@@ -48,7 +48,7 @@ class _WeightLbWidgetState extends State<WeightLbWidget> {
               );
             });
           },
-          action2: (value) {
+          onPoundChange: (value) {
             setState(() {
               _lbDouble = value;
               Provider.of<RegisterForm>(context, listen: false).addPersonWeight(
@@ -108,7 +108,7 @@ class _AimWeightLbWidgetState extends State<AimWeightLbWidget> {
       context: context,
       builder: (BuildContext context) {
         return ShowLBWeightPicker(
-          action1: (value) {
+          onLbChange: (value) {
             setState(() {
               _aimlb = value + 100;
               Provider.of<RegisterForm>(context, listen: false)
@@ -125,7 +125,7 @@ class _AimWeightLbWidgetState extends State<AimWeightLbWidget> {
               );
             });
           },
-          action2: (value) {
+          onPoundChange: (value) {
             setState(() {
               _aimlbDouble = value;
               Provider.of<RegisterForm>(context, listen: false)

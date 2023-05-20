@@ -5,25 +5,17 @@ import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/gender_input.
 import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/name_input.dart';
 
 
-class OnboardingScreen1 extends StatefulWidget {
+class OnboardingScreen1 extends StatelessWidget {
   static const routeName = '/OnboardingScreen';
  const OnboardingScreen1({super.key});
 
-  @override
-  State<OnboardingScreen1> createState() => _OnboardingScreen1State();
-}
 
-class _OnboardingScreen1State extends State<OnboardingScreen1> {
-  TextEditingController nameController = TextEditingController();
+  
 
-  DateTime? dateController;
+  
 
-  bool isChosing = false;
-
-// String? name;
   @override
   Widget build(BuildContext context) {
-// final person= Provider.of<RegisterForm>(context).person.birthdate;
     return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -39,7 +31,7 @@ class _OnboardingScreen1State extends State<OnboardingScreen1> {
               ),
             ),
             NameInput(),
-            DateInput( // birthdate:   person  ,
+            DateInput( 
 ),
             GenderInput(),
           ],

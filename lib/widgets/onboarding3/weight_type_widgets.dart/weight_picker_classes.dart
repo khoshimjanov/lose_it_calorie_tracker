@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import '../weight_picker_item.dart';
 
 class ShowLBWeightPicker extends StatelessWidget {
-  final Function(int value) action1;
-  final Function(int value) action2;
+  final Function(int value) onLbChange;
+  final Function(int value) onPoundChange;
 
   const ShowLBWeightPicker({
     super.key,
-    required this.action1,
-    required this.action2,
+    required this.onLbChange,
+    required this.onPoundChange,
   });
 
   @override
@@ -22,13 +22,13 @@ class ShowLBWeightPicker extends StatelessWidget {
             valuelength: 151,
             addedvalue: 100,
             text: '.',
-            action: action1,
+            action: onLbChange,
           ),
           WeightPickerItem(
             valuelength: 10,
             addedvalue: 0,
             text: 'lb',
-            action: action2,
+            action: onPoundChange,
           ),
         ],
       ),
@@ -37,15 +37,15 @@ class ShowLBWeightPicker extends StatelessWidget {
 }
 
 class ShowStLbWeightPicker extends StatelessWidget {
-  final Function(int value) action1;
-  final Function(int value) action2;
-  final Function(int value) action3;
+  final Function(int value) onStChange;
+  final Function(int value) onLbChange;
+  final Function(int value) onPoundchange;
 
   const ShowStLbWeightPicker({
     super.key,
-    required this.action1,
-    required this.action2,
-    required this.action3,
+    required this.onStChange,
+    required this.onLbChange,
+    required this.onPoundchange,
   });
 
   @override
@@ -58,16 +58,16 @@ class ShowStLbWeightPicker extends StatelessWidget {
             valuelength: 50,
             addedvalue: 1,
             text: 'st',
-            action: action1,
+            action: onStChange,
           ),
           WeightPickerItem(
             valuelength: 14,
             addedvalue: 0,
             text: '.',
-            action: action2,
+            action: onLbChange,
           ),
           WeightPickerItem(
-              valuelength: 10, addedvalue: 0, text: 'lb', action: action3,),
+              valuelength: 10, addedvalue: 0, text: 'lb', action: onPoundchange,),
         ],
       ),
     );
@@ -75,13 +75,13 @@ class ShowStLbWeightPicker extends StatelessWidget {
 }
 
 class ShowKgWeightPicker extends StatelessWidget {
-  final Function(int value) action1;
-  final Function(int value) action2;
+  final Function(int value) onKgChange;
+  final Function(int value) onKgDoubleChange;
 
   const ShowKgWeightPicker({
     super.key,
-    required this.action1,
-    required this.action2,
+    required this.onKgChange,
+    required this.onKgDoubleChange,
   });
 
   @override
@@ -94,13 +94,13 @@ class ShowKgWeightPicker extends StatelessWidget {
             valuelength: 191,
             addedvalue: 30,
             text: '.',
-            action: action1,
+            action: onKgChange,
           ),
           WeightPickerItem(
             valuelength: 10,
             addedvalue: 0,
             text: 'kg',
-            action: action2,
+            action: onKgDoubleChange,
           ),
         ],
       ),

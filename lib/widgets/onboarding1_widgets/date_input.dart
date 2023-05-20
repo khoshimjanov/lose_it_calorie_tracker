@@ -7,11 +7,10 @@ import 'package:provider/provider.dart';
 import '../../provider/register_form.dart';
 
 class DateInput extends StatefulWidget {
-  // final DateTime birthdate;
 
   const DateInput({
     super.key,
-    // required this.birthdate,
+   
   });
 
   @override

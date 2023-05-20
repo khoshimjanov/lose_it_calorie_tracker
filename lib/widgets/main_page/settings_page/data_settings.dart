@@ -23,12 +23,23 @@ class _DataSettingsState extends State<DataSettings> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(4.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Expanded(child: Text('')),
-                const Expanded(child: Text('Personal Data')),
+                const Expanded(
+                  flex: 4,
+                  child: Align(
+                    child: Text(
+                      'Personal Data',
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
                 Expanded(
                   child: IconButton(
                     onPressed: () {
@@ -50,7 +61,8 @@ class _DataSettingsState extends State<DataSettings> {
               text: 'SAVE',
               action: () {
                 Navigator.of(context).pop();
-                Provider.of<Auth>(context,listen:false).update(Provider.of<RegisterForm>(context,listen: false).person);
+                Provider.of<Auth>(context, listen: false).update(
+                    Provider.of<RegisterForm>(context, listen: false).person);
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     backgroundColor: Color.fromARGB(255, 129, 127, 127),

@@ -30,12 +30,6 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Group 39.svg
   String get group39 => 'assets/icons/Group 39.svg';
 
-  /// File path: assets/icons/Radio_button_1.svg
-  String get radioButton1 => 'assets/icons/Radio_button_1.svg';
-
-  /// File path: assets/icons/Radio_button_2.svg
-  String get radioButton2 => 'assets/icons/Radio_button_2.svg';
-
   /// File path: assets/icons/Shield Done.svg
   String get shieldDone => 'assets/icons/Shield Done.svg';
 
@@ -159,6 +153,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/salmon.svg
   String get salmon => 'assets/icons/salmon.svg';
 
+  /// File path: assets/icons/selectedButton.svg
+  String get selectedButton => 'assets/icons/selectedButton.svg';
+
   /// File path: assets/icons/settings.svg
   String get settings => 'assets/icons/settings.svg';
 
@@ -174,6 +171,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/termsOfUse.svg
   String get termsOfUse => 'assets/icons/termsOfUse.svg';
 
+  /// File path: assets/icons/unselectedButton.svg
+  String get unselectedButton => 'assets/icons/unselectedButton.svg';
+
   /// File path: assets/icons/weight-scale 1.svg
   String get weightScale1 => 'assets/icons/weight-scale 1.svg';
 
@@ -188,8 +188,6 @@ class $AssetsIconsGen {
         ellipse,
         frame,
         group39,
-        radioButton1,
-        radioButton2,
         shieldDone,
         acorn,
         apple,
@@ -231,11 +229,13 @@ class $AssetsIconsGen {
         redEllipse,
         salad,
         salmon,
+        selectedButton,
         settings,
         shrimp,
         slim1,
         soup,
         termsOfUse,
+        unselectedButton,
         weightScale1,
         weightScale
       ];

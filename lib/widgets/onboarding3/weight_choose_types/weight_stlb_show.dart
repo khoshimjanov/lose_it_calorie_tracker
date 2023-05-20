@@ -36,7 +36,7 @@ class _WeightStLbWidgetState extends State<WeightStLbWidget> {
       context: context,
       builder: (BuildContext context) {
         return ShowStLbWeightPicker(
-          action1: (value) {
+          onStChange: (value) {
             setState(() {
               _st = value + 1;
               Provider.of<RegisterForm>(context, listen: false).addPersonWeight(
@@ -57,7 +57,7 @@ class _WeightStLbWidgetState extends State<WeightStLbWidget> {
               );
             });
           },
-          action2: (value) {
+          onLbChange: (value) {
             setState(() {
               _stLb = value;
               Provider.of<RegisterForm>(context, listen: false).addPersonWeight(
@@ -78,7 +78,7 @@ class _WeightStLbWidgetState extends State<WeightStLbWidget> {
               );
             });
           },
-          action3: (value) {
+          onPoundchange: (value) {
             setState(() {
               _stLbDouble = value;
               Provider.of<RegisterForm>(context, listen: false).addPersonWeight(
@@ -148,7 +148,7 @@ class _AimWeightStLbWidgetState extends State<AimWeightStLbWidget> {
       context: context,
       builder: (BuildContext context) {
         return ShowStLbWeightPicker(
-          action1: (value) {
+          onStChange: (value) {
             setState(() {
               _aimst = value + 1;
               Provider.of<RegisterForm>(context, listen: false)
@@ -170,7 +170,7 @@ class _AimWeightStLbWidgetState extends State<AimWeightStLbWidget> {
               );
             });
           },
-          action2: (value) {
+          onLbChange: (value) {
             setState(() {
               _aimstLb = value;
               Provider.of<RegisterForm>(context, listen: false)
@@ -192,7 +192,7 @@ class _AimWeightStLbWidgetState extends State<AimWeightStLbWidget> {
               );
             });
           },
-          action3: (value) {
+          onPoundchange: (value) {
             setState(() {
               _aimstLbDouble = value;
               Provider.of<RegisterForm>(context, listen: false)

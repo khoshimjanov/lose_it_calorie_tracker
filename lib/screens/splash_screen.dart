@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          // textBaseline: TextBaseline.values[1],
+          
           children: [
             SafeArea(child: Assets.images.weightImage.image()),
             const SizedBox(

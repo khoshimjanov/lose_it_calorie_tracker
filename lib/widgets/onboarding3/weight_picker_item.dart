@@ -20,7 +20,7 @@ class WeightPickerItem extends StatelessWidget {
       child: CupertinoPicker(
         selectionOverlay: Container(
           padding: const EdgeInsets.only(right: 10,
-              //  MediaQuery.of(context).size.width * 0.1
+           
               ),
           alignment: Alignment.centerRight,
           decoration: const BoxDecoration(

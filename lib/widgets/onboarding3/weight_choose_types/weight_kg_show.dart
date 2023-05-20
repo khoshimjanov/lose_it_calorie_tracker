@@ -37,7 +37,7 @@ class _WeightKgWidgetState extends State<WeightKgWidget> {
       context: context,
       builder: (BuildContext context) {
         return ShowKgWeightPicker(
-          action1: (value) {
+          onKgChange: (value) {
             setState(() {
               _kg = value + 30;
               Provider.of<RegisterForm>(context, listen: false).addPersonWeight(
@@ -50,7 +50,7 @@ class _WeightKgWidgetState extends State<WeightKgWidget> {
               );
             });
           },
-          action2: (value) {
+          onKgDoubleChange: (value) {
             setState(() {
               _kgDouble = value;
               Provider.of<RegisterForm>(context, listen: false).addPersonWeight(
@@ -110,7 +110,7 @@ class _AimWeightKgWidgetState extends State<AimWeightKgWidget> {
       context: context,
       builder: (BuildContext context) {
         return ShowKgWeightPicker(
-          action1: (value) {
+          onKgChange: (value) {
             setState(() {
               _aimkg = value + 30;
               Provider.of<RegisterForm>(context, listen: false)
@@ -126,7 +126,7 @@ class _AimWeightKgWidgetState extends State<AimWeightKgWidget> {
               );
             });
           },
-          action2: (value) {
+          onKgDoubleChange: (value) {
             setState(() {
               _aimkgDouble = value;
               Provider.of<RegisterForm>(context, listen: false)
