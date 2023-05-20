@@ -18,68 +18,71 @@ class ListTileGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.only(left: 20),
-        child: SingleChildScrollView(
-          child: Column(children: [
-            const Divider(),
-            ListTile(
-                leading: SvgPicture.asset(Assets.icons.frame),
-                title: const Text('Height unit'),
-                trailing: SizedBox(
-                  width: 120,
-                  height: 30,
-                  child: CustomSlidingSegmentedControl(
-                    children: [HeightType.feet.message, HeightType.cm.message],
-                    onValueChanged: heightValueChanged,
-                  ),
-                ),),
-            const Divider(),
-            ListTile(
-              leading: SvgPicture.asset(Assets.icons.weightScale),
-              title: const Text('Weight unit'),
-              trailing: SizedBox(
-                width: 160,
-                height: 30,
-                child: CustomSlidingSegmentedControl(
-                  children: [
-                    WeightType.lb.message,
-                    WeightType.stLb.message,
-                    WeightType.kg.message
-                  ],
-                  onValueChanged: weightValueChanged,
-                ),
+    return Container(
+      padding: const EdgeInsets.only(left: 20),
+      child: Column(
+        children: [
+          const Divider(),
+          ListTile(
+            leading: SvgPicture.asset(Assets.icons.frame),
+            title: const Text('Height unit'),
+            trailing: SizedBox(
+              width: 120,
+              height: 30,
+              child: CustomSlidingSegmentedControl(
+                children: [HeightType.feet.message, HeightType.cm.message],
+                onValueChanged: heightValueChanged,
               ),
             ),
-            const Divider(),
-            ListTile(
-              leading: SvgPicture.asset(Assets.icons.shieldDone),
-              title: const Text('Privacy Police'),
-              trailing: IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.chevron_right),),
-            ),
-            const Divider(),
-            ListTile(
-              leading: SvgPicture.asset(Assets.icons.termsOfUse),
-              title: const Text('Terms of Use'),
-              trailing: IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.chevron_right),),
-            ),
-            const Divider(),
-            InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed(SupporPage.routeName);
-              },
-              child: ListTile(
-                leading: SvgPicture.asset(Assets.icons.combinedShape),
-                title: const Text('Support'),
-                trailing:const Icon(Icons.chevron_right),
+          ),
+          const Divider(),
+          ListTile(
+            leading: SvgPicture.asset(Assets.icons.weightScale),
+            title: const Text('Weight unit'),
+            trailing: SizedBox(
+              width: 160,
+              height: 30,
+              child: CustomSlidingSegmentedControl(
+                children: [
+                  WeightType.lb.message,
+                  WeightType.stLb.message,
+                  WeightType.kg.message
+                ],
+                onValueChanged: weightValueChanged,
               ),
             ),
-            const Divider(),
-          ],),
-        ),
+          ),
+          const Divider(),
+          ListTile(
+            leading: SvgPicture.asset(Assets.icons.shieldDone),
+            title: const Text('Privacy Police'),
+            trailing: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.chevron_right),
+            ),
+          ),
+          const Divider(),
+          ListTile(
+            leading: SvgPicture.asset(Assets.icons.termsOfUse),
+            title: const Text('Terms of Use'),
+            trailing: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.chevron_right),
+            ),
+          ),
+          const Divider(),
+          InkWell(
+            onTap: () {
+              Navigator.of(context).pushNamed(SupporPage.routeName);
+            },
+            child: ListTile(
+              leading: SvgPicture.asset(Assets.icons.combinedShape),
+              title: const Text('Support'),
+              trailing: const Icon(Icons.chevron_right),
+            ),
+          ),
+          const Divider(),
+        ],
       ),
     );
   }

@@ -7,16 +7,18 @@ class MainPageSafeArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Container(
-      alignment: AlignmentDirectional.centerStart,
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
-      decoration: const BoxDecoration(
-          border: Border(bottom: BorderSide(color: Colors.red, width: 0.5)),),
-      child: Text(
-        text,
-        style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+      child: Container(
+        alignment: AlignmentDirectional.centerStart,
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+        decoration: const BoxDecoration(
+          border: Border(bottom: BorderSide(color: Colors.red, width: 0.5)),
+        ),
+        child: Text(
+          text,
+          style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+        ),
       ),
-    ),);
+    );
   }
 }

@@ -38,33 +38,36 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const MainPageSafeArea(
-            text: 'Settings',
-          ),
-          PersonalInfo(heightType: heightType, weightType: weightType),
-          ListTileGroup(
-            heightValueChanged: (value) {
-              if (value == 0) {
-                heightType = HeightType.feet;
-              } else {
-                heightType = HeightType.cm;
-              }
-              setState(() {});
-            },
-            weightValueChanged: (value) {
-              if (value == 0) {
-                weightType = WeightType.lb;
-              } else if (value == 1) {
-                weightType = WeightType.stLb;
-              } else {
-                weightType = WeightType.kg;
-              }
-              setState(() {});
-            },
-          )
-        ],
+      appBar: const PreferredSize(
+        preferredSize: Size(double.infinity, 60),
+        child: MainPageSafeArea(text: 'Settings'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            PersonalInfo(heightType: heightType, weightType: weightType),
+            ListTileGroup(
+              heightValueChanged: (value) {
+                if (value == 0) {
+                  heightType = HeightType.feet;
+                } else {
+                  heightType = HeightType.cm;
+                }
+                setState(() {});
+              },
+              weightValueChanged: (value) {
+                if (value == 0) {
+                  weightType = WeightType.lb;
+                } else if (value == 1) {
+                  weightType = WeightType.stLb;
+                } else {
+                  weightType = WeightType.kg;
+                }
+                setState(() {});
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
