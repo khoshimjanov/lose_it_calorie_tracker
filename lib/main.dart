@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lose_it_calory_tracker/provider/auth.dart';
+import 'package:lose_it_calory_tracker/provider/foods.dart';
 import 'package:lose_it_calory_tracker/provider/register_form.dart';
 import 'package:lose_it_calory_tracker/screens/check_screen.dart';
+import 'package:lose_it_calory_tracker/screens/home_pages/add_food_page.dart';
 import 'package:lose_it_calory_tracker/screens/home_pages/home_page.dart';
 import 'package:lose_it_calory_tracker/screens/home_pages/macronutrients_page.dart';
 import 'package:lose_it_calory_tracker/screens/home_pages/main_screen.dart';
@@ -34,6 +36,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => Auth()),
         ChangeNotifierProvider(create: (context) => RegisterForm()),
+        ChangeNotifierProvider(create: (context) => Foods()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -68,7 +71,8 @@ class MyApp extends StatelessWidget {
           AddDinner.routeName: (context) => const AddDinner(),
           AddLunch.routeName: (context) => const AddLunch(),
           AddSnacks.routeName: (context) => const AddSnacks(),
-          SupporPage.routeName: (context) => const SupporPage()
+          SupporPage.routeName: (context) => const SupporPage(),
+          AddFoodWidget.routeName:(context) =>const AddFoodWidget()
         },
       ),
     );

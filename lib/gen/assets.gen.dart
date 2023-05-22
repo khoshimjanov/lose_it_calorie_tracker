@@ -30,11 +30,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Group 39.svg
   String get group39 => 'assets/icons/Group 39.svg';
 
+  /// File path: assets/icons/Plus.svg
+  String get plus => 'assets/icons/Plus.svg';
+
   /// File path: assets/icons/Shield Done.svg
   String get shieldDone => 'assets/icons/Shield Done.svg';
 
   /// File path: assets/icons/acorn.svg
   String get acorn => 'assets/icons/acorn.svg';
+
+  /// File path: assets/icons/add.svg
+  String get add => 'assets/icons/add.svg';
 
   /// File path: assets/icons/apple.svg
   String get apple => 'assets/icons/apple.svg';
@@ -81,6 +87,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/chosen_weight_tracker.svg
   String get chosenWeightTracker => 'assets/icons/chosen_weight_tracker.svg';
 
+  /// File path: assets/icons/container.svg
+  String get container => 'assets/icons/container.svg';
+
   /// File path: assets/icons/cookie.svg
   String get cookie => 'assets/icons/cookie.svg';
 
@@ -92,6 +101,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/egg.svg
   String get egg => 'assets/icons/egg.svg';
+
+  /// File path: assets/icons/eliminate.svg
+  String get eliminate => 'assets/icons/eliminate.svg';
 
   /// File path: assets/icons/fish.svg
   String get fish => 'assets/icons/fish.svg';
@@ -147,6 +159,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/redEllipse.svg
   String get redEllipse => 'assets/icons/redEllipse.svg';
 
+  /// File path: assets/icons/remove.svg
+  String get remove => 'assets/icons/remove.svg';
+
   /// File path: assets/icons/salad.svg
   String get salad => 'assets/icons/salad.svg';
 
@@ -171,6 +186,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/termsOfUse.svg
   String get termsOfUse => 'assets/icons/termsOfUse.svg';
 
+  /// File path: assets/icons/tickedContainer.svg
+  String get tickedContainer => 'assets/icons/tickedContainer.svg';
+
   /// File path: assets/icons/unselectedButton.svg
   String get unselectedButton => 'assets/icons/unselectedButton.svg';
 
@@ -188,8 +206,10 @@ class $AssetsIconsGen {
         ellipse,
         frame,
         group39,
+        plus,
         shieldDone,
         acorn,
+        add,
         apple,
         avocado,
         barGraph1,
@@ -205,10 +225,12 @@ class $AssetsIconsGen {
         chocolate,
         chosenHome,
         chosenWeightTracker,
+        container,
         cookie,
         corn,
         donut,
         egg,
+        eliminate,
         fish,
         frenchFries,
         friedChicken,
@@ -227,6 +249,7 @@ class $AssetsIconsGen {
         pumpkin,
         ramen,
         redEllipse,
+        remove,
         salad,
         salmon,
         selectedButton,
@@ -235,6 +258,7 @@ class $AssetsIconsGen {
         slim1,
         soup,
         termsOfUse,
+        tickedContainer,
         unselectedButton,
         weightScale1,
         weightScale

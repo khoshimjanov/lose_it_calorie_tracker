@@ -55,25 +55,39 @@ class _DataSettingsState extends State<DataSettings> {
           const DateInput(),
           const GenderInput(),
           const WeightHeightChange(),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: ElevatedButtonWidget(
-              text: 'SAVE',
-              action: () {
-                Navigator.of(context).pop();
-                Provider.of<Auth>(context, listen: false).update(
-                    Provider.of<RegisterForm>(context, listen: false).person);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    backgroundColor: Color.fromARGB(255, 129, 127, 127),
-                    content: Text('Data is modified'),
-                    duration: Duration(seconds: 1),
-                  ),
-                );
-              },
-            ),
-          )
+           const SubmitButton()
         ],
+      ),
+    );
+  }
+}
+
+
+
+
+class SubmitButton extends StatelessWidget {
+  const SubmitButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: ElevatedButtonWidget(
+        text: 'SAVE',
+        action: () {
+          Navigator.of(context).pop();
+          Provider.of<Auth>(context, listen: false).update(
+              Provider.of<RegisterForm>(context, listen: false).person);
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              backgroundColor: Color.fromARGB(255, 129, 127, 127),
+              content: Text('Data is modified'),
+              duration: Duration(seconds: 1),
+            ),
+          );
+        },
       ),
     );
   }

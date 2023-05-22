@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lose_it_calory_tracker/gen/assets.gen.dart';
 import 'package:lose_it_calory_tracker/provider/auth.dart';
-import 'package:lose_it_calory_tracker/widgets/main_page/settings_page/data_settings.dart';
+import 'package:lose_it_calory_tracker/widgets/main_page/settings_page/show_data_settings.dart';
 import 'package:provider/provider.dart';
 
 import '../../../screens/home_pages/settings_page/settings_page.dart';
@@ -68,27 +68,7 @@ class PersonalInfo extends StatelessWidget {
               ),
               style: Theme.of(context).textTheme.titleSmall,
             ),
-            trailing: Padding(
-              padding: const EdgeInsets.only(bottom: 30),
-              child: IconButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => Dialog(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      child: const SingleChildScrollView(child: DataSettings()),
-                    ),
-                  );
-                },
-                icon: SvgPicture.asset(
-                  Assets.icons.moreVert,
-                  // ignore: deprecated_member_use
-                  color: const Color.fromRGBO(86, 86, 86, 1),
-                ),
-              ),
-            ),
+            trailing:const ShowDataSettings(),
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
@@ -164,40 +144,56 @@ class PersonalInfo extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Free Member',
-                  style: Theme.of(context).textTheme.titleMedium,
+        const  UserStatusWidget()
+        ],
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+class UserStatusWidget extends StatelessWidget {
+  const UserStatusWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            'Free Member',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          InkWell(
+            borderRadius: BorderRadius.circular(30),
+            onTap: () {},
+            child: Ink(
+              padding: const EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                gradient: const LinearGradient(
+                  colors: [
+                    Color.fromRGBO(252, 90, 68, 1),
+                    Color.fromRGBO(196, 20, 50, 1)
+                  ],
                 ),
-                InkWell(
-                  borderRadius: BorderRadius.circular(30),
-                  onTap: () {},
-                  child: Ink(
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      gradient: const LinearGradient(
-                        colors: [
-                          Color.fromRGBO(252, 90, 68, 1),
-                          Color.fromRGBO(196, 20, 50, 1)
-                        ],
-                      ),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'SWITCH TO PREMIUM',
-                        style: TextStyle(color: Colors.white, fontSize: 12),
-                      ),
-                    ),
-                  ),
+              ),
+              child: const Center(
+                child: Text(
+                  'SWITCH TO PREMIUM',
+                  style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
-              ],
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

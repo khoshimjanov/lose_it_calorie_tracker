@@ -34,7 +34,7 @@ class MealsWidget extends StatelessWidget {
           topRight: Radius.circular(24),
         ),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      padding: const EdgeInsets.all(15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -51,25 +51,32 @@ class MealsWidget extends StatelessWidget {
               )
             ],
           ),
-          Text(
-            calorieContent,
-            style: Theme.of(context).textTheme.bodySmall,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Text(
+              calorieContent,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
           ),
           Align(
             alignment: Alignment.bottomRight,
-            child: TextButton(
-              onPressed: addMeal,
-              child: Ink(
-                width: 150,
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white),
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                child: Center(
-                  child: Text(
-                    addMealText,
-                    style: const TextStyle(color: Colors.white, fontSize: 13),
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: addMeal,
+                borderRadius: BorderRadius.circular(24),
+                child: Ink(
+                  width: 150,
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  child: Center(
+                    child: Text(
+                      addMealText,
+                      style: const TextStyle(color: Colors.white, fontSize: 13),
+                    ),
                   ),
                 ),
               ),

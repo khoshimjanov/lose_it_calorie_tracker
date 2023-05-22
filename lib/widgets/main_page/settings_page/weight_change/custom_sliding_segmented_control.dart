@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class CustomSlidingSegmentedControl extends StatefulWidget {
@@ -77,10 +75,11 @@ class _CustomSlidingSegmentedControlState
           ),
           AnimatedAlign(
             alignment: Alignment(
-                widget.children.length == 2
-                    ? _selectedIndex * 2 - 1
-                    : _selectedIndex - 1,
-                0,),
+              widget.children.length == 2
+                  ? _selectedIndex * 2 - 1
+                  : _selectedIndex - 1,
+              0,
+            ),
             curve: Curves.easeInOut,
             duration: const Duration(milliseconds: 300),
             child: Container(
