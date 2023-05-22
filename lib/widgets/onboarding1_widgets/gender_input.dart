@@ -65,24 +65,26 @@ class GenderModelWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 2,
+      ),
       child: InkWell(
         borderRadius: BorderRadius.circular(30),
         onTap: onChange,
         child: Ink(
           padding: const EdgeInsets.symmetric(
             horizontal: 10,
-            vertical: 10,
+            vertical: 15,
           ),
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey),
+            border: Border.all(color: const Color.fromRGBO(229, 229, 229, 1)),
             borderRadius: BorderRadius.circular(30),
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 10),
+              Expanded(
+                flex: 3,
                 child: SvgPicture.asset(
                   isSelected
                       ? Assets.icons.selectedButton
@@ -90,6 +92,7 @@ class GenderModelWidget extends StatelessWidget {
                 ),
               ),
               Expanded(
+                flex: 5,
                 child: Text(
                   title,
                   style: const TextStyle(

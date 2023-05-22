@@ -4,15 +4,9 @@ import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/date_input.da
 import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/gender_input.dart';
 import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/name_input.dart';
 
-
 class OnboardingScreen1 extends StatelessWidget {
   static const routeName = '/OnboardingScreen';
- const OnboardingScreen1({super.key});
-
-
-  
-
-  
+  const OnboardingScreen1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +14,7 @@ class OnboardingScreen1 extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-             Padding(
+            Padding(
               padding: EdgeInsets.all(20.0),
               child: Text(
                 textAlign: TextAlign.center,
@@ -31,8 +25,7 @@ class OnboardingScreen1 extends StatelessWidget {
               ),
             ),
             NameInput(),
-            DateInput( 
-),
+            DateInput(),
             GenderInput(),
           ],
         ),

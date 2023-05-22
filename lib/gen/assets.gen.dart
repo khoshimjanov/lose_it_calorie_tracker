@@ -12,6 +12,9 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/ArrowStroke.svg
+  String get arrowStroke => 'assets/icons/ArrowStroke.svg';
+
   /// File path: assets/icons/Camera.svg
   String get camera => 'assets/icons/Camera.svg';
 
@@ -44,6 +47,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/apple.svg
   String get apple => 'assets/icons/apple.svg';
+
+  /// File path: assets/icons/arrow.svg
+  String get arrow => 'assets/icons/arrow.svg';
 
   /// File path: assets/icons/avocado.svg
   String get avocado => 'assets/icons/avocado.svg';
@@ -200,6 +206,7 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<String> get values => [
+        arrowStroke,
         camera,
         chart,
         combinedShape,
@@ -211,6 +218,7 @@ class $AssetsIconsGen {
         acorn,
         add,
         apple,
+        arrow,
         avocado,
         barGraph1,
         beans,

@@ -14,6 +14,7 @@ class Auth with ChangeNotifier {
 
   Person? get person => _person;
 
+  // ignore: use_setters_to_change_properties
   void addPerson(Person newperson) {
     _person = newperson;
   }
@@ -40,7 +41,12 @@ class Auth with ChangeNotifier {
     try {
       final db = await DBHelper.getData();
 
-      final i = db!;
+      if (db == null) {
+        _person = null;
+        notifyListeners();
+        return;
+      }
+      final i = db;
       final newperson = Person(
         id: i['id'].toString(),
         name: i['name'].toString(),
@@ -70,7 +76,6 @@ class Auth with ChangeNotifier {
         ),
       );
       _person = newperson;
-      // Provider.of<RegisterForm>(listen: false);
       notifyListeners();
     } catch (e) {
       print('error in fetching data:$e');

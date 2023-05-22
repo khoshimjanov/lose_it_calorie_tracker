@@ -52,12 +52,22 @@ class DBHelper {
   }
 
   static Future<Map<String, Object?>?> getData() async {
+    try{
     final db = await DBHelper.database();
     final data = await db.query('client');
+    if(data.isEmpty){
+      return null;
+    }
+    
     print(" data:$data");
     final sentData = data[0];
     return sentData;
-  }
+    }catch(e){
+      print('erron in getdata:$e');
+      rethrow;
+    }
+   
+}
 
   static Future<void> update(Person person) async {
     try {

@@ -7,10 +7,8 @@ import 'package:provider/provider.dart';
 import '../../provider/register_form.dart';
 
 class DateInput extends StatefulWidget {
-
   const DateInput({
     super.key,
-   
   });
 
   @override
@@ -61,7 +59,7 @@ class _DateInputState extends State<DateInput> {
             },
             child: Ink(
               height: 60,
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               decoration: BoxDecoration(
                 color: dateController == null
                     ? const Color.fromRGBO(240, 240, 240, 1)

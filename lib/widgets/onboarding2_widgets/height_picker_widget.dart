@@ -9,8 +9,11 @@ import '../../provider/register_form.dart';
 class HeightPickerWidget extends StatefulWidget {
   final bool isCentimentre;
   final bool isSettings;
-  const HeightPickerWidget(
-      {super.key, required this.isCentimentre, this.isSettings = false,});
+  const HeightPickerWidget({
+    super.key,
+    required this.isCentimentre,
+    this.isSettings = false,
+  });
 
   @override
   _HeightPickerWidgetState createState() => _HeightPickerWidgetState();
@@ -118,6 +121,7 @@ class _HeightPickerWidgetState extends State<HeightPickerWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final state = Provider.of<RegisterForm>(context).person.height;
     return Column(
       children: [
         const Padding(
@@ -128,14 +132,14 @@ class _HeightPickerWidgetState extends State<HeightPickerWidget> {
             action: () {
               _showFeetHeightPicker();
             },
-            text: '$_feet\' $_inches"',
+            text: state == null ? '$_feet\' $_inches"' : '${state.feetHeight}',
             heightType: 'ft/in',
             isSettings: widget.isSettings,
           )
         else
           HeightInput(
             action: _showCmHeightPicker,
-            text: '$_heightInCm',
+            text: state == null ? '$_heightInCm' : '${state.cmHeight}',
             heightType: 'cm',
             isSettings: widget.isSettings,
           )

@@ -43,22 +43,30 @@ class _WeightPickerWidgetState extends State<WeightPickerWidget> {
                 onValueChanged: _onSegmentTapped,
               ),
             ),
-            const Text('What is your current weight?'),
+            const Padding(
+              padding: EdgeInsets.only(top: 10),
+              child: Text('What is your current weight?'),
+            ),
             Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: _selectedIndex == 0
-                    ? const WeightLbWidget()
-                    : _selectedIndex == 1
-                        ? const WeightStLbWidget()
-                        : const WeightKgWidget(),),
-            const Text('How much weight do you want to be?'),
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: _selectedIndex == 0
+                  ? const WeightLbWidget()
+                  : _selectedIndex == 1
+                      ? const WeightStLbWidget()
+                      : const WeightKgWidget(),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 10),
+              child: Text('How much weight do you want to be?'),
+            ),
             Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: _selectedIndex == 0
-                    ? const AimWeightLbWidget()
-                    : _selectedIndex == 1
-                        ? const AimWeightStLbWidget()
-                        : const AimWeightKgWidget(),)
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: _selectedIndex == 0
+                  ? const AimWeightLbWidget()
+                  : _selectedIndex == 1
+                      ? const AimWeightStLbWidget()
+                      : const AimWeightKgWidget(),
+            )
           ],
         ),
       ),

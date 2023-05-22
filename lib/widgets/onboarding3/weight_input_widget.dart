@@ -18,7 +18,7 @@ class WeightInput extends StatelessWidget {
     return GestureDetector(
       onTap: weightValueChanged,
       child: Container(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(18),
         decoration: BoxDecoration(
           color: Colors.grey[300],
           borderRadius: const BorderRadius.all(Radius.circular(30)),

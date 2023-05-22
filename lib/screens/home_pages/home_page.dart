@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lose_it_calory_tracker/provider/auth.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/homepage/add_breakfast_widget.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/homepage/add_lunch_widget.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/homepage/meals_widget.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/main_page_safe_area.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   static const routeName = '/HomePage';
@@ -11,18 +13,18 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final person = Provider.of<Auth>(context).person;
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size(double.infinity, 50),
-        child: MainPageSafeArea(text: 'Homepage'), 
+      appBar: PreferredSize(
+        preferredSize: const Size(double.infinity, 50),
+        child: MainPageSafeArea(text: 'Hello,${person!.name}!'),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

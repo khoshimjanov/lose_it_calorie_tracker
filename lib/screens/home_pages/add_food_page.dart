@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lose_it_calory_tracker/gen/assets.gen.dart';
-import 'package:lose_it_calory_tracker/provider/food.dart';
 import 'package:lose_it_calory_tracker/provider/foods.dart';
 import 'package:lose_it_calory_tracker/widgets/main_page/main_page_safe_area.dart';
 import 'package:provider/provider.dart';
@@ -74,16 +73,31 @@ class AddFoodWidget extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
-            child: SearchedFoodsWidget(state: state),
-          ),
+          if (state.searchedFood.isEmpty)
+            Column(
+              children: [
+                Container(
+                  alignment: Alignment.bottomRight,
+                  padding: EdgeInsets.symmetric(horizontal: 30),
+                  child: SvgPicture.asset(Assets.icons.arrow),
+                ),
+                const Text(
+                  'Click on plus to add your food and set calories',
+                  style: TextStyle(
+                    color: Color.fromRGBO(125, 125, 125, 1),
+                  ),
+                )
+              ],
+            )
+          else
+            Expanded(
+              child: SearchedFoodsWidget(state: state),
+            ),
         ],
       ),
     );
   }
 }
-
-
 
 class SearchedFoodsWidget extends StatelessWidget {
   const SearchedFoodsWidget({
@@ -108,19 +122,12 @@ class SearchedFoodsWidget extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Row(
                       children: [
-                        // contentPadding: const EdgeInsets.symmetric(
-                        //   horizontal: 30,
-                        //   vertical: 5,
-                        // ),
                         Expanded(
                           child: SvgPicture.asset(food.imageUrl),
                         ),
                         Expanded(
                           child: Column(
-                            crossAxisAlignment:
-                                CrossAxisAlignment.start,
-                            // mainAxisAlignment:
-                            // MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -151,55 +158,24 @@ class SearchedFoodsWidget extends StatelessWidget {
                             ],
                           ),
                         ),
-
                         Expanded(
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              InkWell(
-                                onTap: () {
-                                  Provider.of<Foods>(
-                                    context,
-                                    listen: false,
-                                  ).removeCalorie(food.id);
-                                },
-                                borderRadius: BorderRadius.circular(5),
-                                child: Ink(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 5, vertical: 8),
-                                  decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.circular(5),
-                                    color: Color.fromRGBO(
-                                        230, 230, 230, 1),
-                                  ),
-                                  child: SvgPicture.asset(
-                                    Assets.icons.remove,
-                                  ),
-                                ),
+                              CalorieIconButton(
+                                imageAsset: Assets.icons.remove,
+                                onTapped: () => Provider.of<Foods>(
+                                  context,
+                                  listen: false,
+                                ).removeCalorie(food.id),
                               ),
                               Text('${food.weight} g'),
-                              InkWell(
-                                onTap: () {
-                                  Provider.of<Foods>(
-                                    context,
-                                    listen: false,
-                                  ).addCalorie(food.id);
-                                },
-                                borderRadius: BorderRadius.circular(5),
-                                child: Ink(
-                                  padding: EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.circular(5),
-                                    color: Color.fromRGBO(
-                                        230, 230, 230, 1),
-                                  ),
-                                  child: SvgPicture.asset(
-                                    Assets.icons.add,
-                                  ),
-                                ),
+                              CalorieIconButton(
+                                imageAsset: Assets.icons.add,
+                                onTapped: () => Provider.of<Foods>(
+                                  context,
+                                  listen: false,
+                                ).addCalorie(food.id),
                               ),
                             ],
                           ),
@@ -215,7 +191,6 @@ class SearchedFoodsWidget extends StatelessWidget {
                                 ).addBreakFastFood(food);
                               },
                               child: Ink(
-                                // color: Color.fromRGBO(),
                                 child: SvgPicture.asset(
                                   state.brakfastFoods.contains(food)
                                       ? Assets.icons.tickedContainer
@@ -225,9 +200,6 @@ class SearchedFoodsWidget extends StatelessWidget {
                             ),
                           ),
                         ),
-                        //     ],
-                        //   ),
-                        // ),
                       ],
                     ),
                   ),
@@ -238,6 +210,37 @@ class SearchedFoodsWidget extends StatelessWidget {
               ),
             )
             .toList(),
+      ),
+    );
+  }
+}
+
+class CalorieIconButton extends StatelessWidget {
+  final String imageAsset;
+  final VoidCallback onTapped;
+
+  const CalorieIconButton({
+    super.key,
+    required this.imageAsset,
+    required this.onTapped,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTapped,
+      borderRadius: BorderRadius.circular(5),
+      child: Ink(
+        padding: imageAsset == Assets.icons.remove
+            ? const EdgeInsets.symmetric(horizontal: 5, vertical: 8)
+            : const EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          color: const Color.fromRGBO(230, 230, 230, 1),
+        ),
+        child: SvgPicture.asset(
+          imageAsset,
+        ),
       ),
     );
   }

@@ -32,7 +32,7 @@ class PersonalInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final person = Provider.of<Auth>(context).person!;
+    final person = Provider.of<Auth>(context).person;
     return Container(
       margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -58,7 +58,7 @@ class PersonalInfo extends StatelessWidget {
               child: Center(child: SvgPicture.asset(Assets.icons.camera)),
             ),
             title: Text(
-              person.name!,
+              person!.name!,
               style: Theme.of(context).textTheme.titleLarge,
             ),
             subtitle: Text(
@@ -68,7 +68,7 @@ class PersonalInfo extends StatelessWidget {
               ),
               style: Theme.of(context).textTheme.titleSmall,
             ),
-            trailing:const ShowDataSettings(),
+            trailing: const ShowDataSettings(),
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
@@ -144,17 +144,12 @@ class PersonalInfo extends StatelessWidget {
               ],
             ),
           ),
-        const  UserStatusWidget()
+          const UserStatusWidget()
         ],
       ),
     );
   }
 }
-
-
-
-
-
 
 class UserStatusWidget extends StatelessWidget {
   const UserStatusWidget({

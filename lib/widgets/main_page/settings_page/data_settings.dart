@@ -79,7 +79,7 @@ class SubmitButton extends StatelessWidget {
         action: () {
           Navigator.of(context).pop();
           Provider.of<Auth>(context, listen: false).update(
-              Provider.of<RegisterForm>(context, listen: false).person);
+              Provider.of<RegisterForm>(context, listen: false).person,);
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               backgroundColor: Color.fromARGB(255, 129, 127, 127),

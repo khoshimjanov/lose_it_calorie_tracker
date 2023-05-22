@@ -22,19 +22,21 @@ class NameInput extends StatelessWidget {
           Container(
             alignment: Alignment.centerLeft,
             height: 60,
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             decoration: BoxDecoration(
-                color: name == null || name == ''
-                    ? const Color.fromRGBO(240, 240, 240, 1)
-                    : const Color.fromRGBO(229, 229, 229, 1),
-                borderRadius: BorderRadius.circular(30),),
+              color: name == null || name == ''
+                  ? const Color.fromRGBO(240, 240, 240, 1)
+                  : const Color.fromRGBO(229, 229, 229, 1),
+              borderRadius: BorderRadius.circular(30),
+            ),
             child: TextFormField(
               onChanged: (value) {
                 if (value.isEmpty) {
                   value = ' ';
                 }
                 Provider.of<RegisterForm>(context, listen: false).addPersonName(
-                    value.replaceFirst(value[0], value[0].toUpperCase()),);
+                  value.replaceFirst(value[0], value[0].toUpperCase()),
+                );
               },
               initialValue: name,
               decoration: const InputDecoration(

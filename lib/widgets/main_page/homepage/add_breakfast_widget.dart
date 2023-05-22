@@ -36,58 +36,7 @@ class AddBreakFast extends StatelessWidget {
         children: [
           const MainPageSafeArea(text: 'Breakfast'),
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: state.brakfastFoods.isEmpty
-                    ? [
-                        SvgPicture.asset(Assets.images.breakfastimage),
-                        const Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Text('Add the food you have eaten'),
-                        )
-                      ]
-                    : state.brakfastFoods
-                        .map(
-                          (
-                            food,
-                          ) =>
-                              Column(
-                            children: [
-                              ListTile(
-                                contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 30,
-                                  vertical: 5,
-                                ),
-                                leading: SvgPicture.asset(food.imageUrl),
-                                title: Text(food.name),
-                                subtitle: Text(
-                                  "${food.totalCalorie()} kcal",
-                                  style: const TextStyle(
-                                    color: Color.fromRGBO(125, 125, 125, 1),
-                                  ),
-                                ),
-                                trailing: InkWell(
-                                  borderRadius: BorderRadius.circular(10),
-                                  onTap: () {
-                                    Provider.of<Foods>(context, listen: false)
-                                        .removeBreakFastFood(food);
-                                  },
-                                  child: SvgPicture.asset(
-                                    Assets.icons.eliminate,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
-                              const Divider(
-                                indent: 30,
-                              )
-                            ],
-                          ),
-                        )
-                        .toList(),
-              ),
-            ),
+            child: ListOfFoodsWidget(state: state),
           ),
           AddFoodButton(
             action: () {
@@ -95,6 +44,74 @@ class AddBreakFast extends StatelessWidget {
             },
           )
         ],
+      ),
+    );
+  }
+}
+
+class ListOfFoodsWidget extends StatelessWidget {
+  const ListOfFoodsWidget({
+    super.key,
+    required this.state,
+  });
+
+  final Foods state;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: state.brakfastFoods.isEmpty
+            ? [
+                Center(child: SvgPicture.asset(Assets.images.breakfastimage)),
+                const Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    'Add the food you have eaten',
+                    style: TextStyle(color: Colors.red),
+                  ),
+                )
+              ]
+            : state.brakfastFoods
+                .map(
+                  (
+                    food,
+                  ) =>
+                      Column(
+                    children: [
+                      ListTile(
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 30,
+                          vertical: 5,
+                        ),
+                        leading: SvgPicture.asset(food.imageUrl),
+                        title: Text(food.name),
+                        subtitle: Text(
+                          "${food.totalCalorie()} kcal",
+                          style: const TextStyle(
+                            color: Color.fromRGBO(125, 125, 125, 1),
+                          ),
+                        ),
+                        trailing: InkWell(
+                          borderRadius: BorderRadius.circular(10),
+                          onTap: () {
+                            Provider.of<Foods>(context, listen: false)
+                                .removeBreakFastFood(food);
+                          },
+                          child: SvgPicture.asset(
+                            Assets.icons.eliminate,
+                            // ignore: deprecated_member_use
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      const Divider(
+                        indent: 30,
+                      )
+                    ],
+                  ),
+                )
+                .toList(),
       ),
     );
   }

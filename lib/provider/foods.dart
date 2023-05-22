@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lose_it_calory_tracker/gen/assets.gen.dart';
 import 'package:lose_it_calory_tracker/provider/food.dart';
-import 'package:lose_it_calory_tracker/widgets/main_page/homepage/add_breakfast_widget.dart';
 
 class Foods with ChangeNotifier {
   final List<Food> _foods = [
