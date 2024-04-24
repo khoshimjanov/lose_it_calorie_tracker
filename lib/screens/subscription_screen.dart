@@ -2,7 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:lose_it_calory_tracker/gen/assets.gen.dart';
-import 'package:lose_it_calory_tracker/screens/home_pages/main_screen.dart';
+import 'package:lose_it_calory_tracker/helper/app_colors.dart';
+import 'package:lose_it_calory_tracker/helper/app_styles.dart';
+import 'package:lose_it_calory_tracker/screens/main_page_screens/main_screen.dart';
 import 'package:lose_it_calory_tracker/screens/splash_screen.dart';
 import 'package:lose_it_calory_tracker/widgets/info_icon_widget.dart';
 import 'package:provider/provider.dart';
@@ -125,20 +127,14 @@ class PaymentTypeButton extends StatelessWidget {
         child: Container(
             margin: const EdgeInsets.only(bottom: 10),
             decoration: BoxDecoration(
-                gradient: const LinearGradient(colors: [
-                  Color.fromRGBO(252, 90, 68, 1),
-                  Color.fromRGBO(196, 20, 50, 1)
-                ],),
+                gradient: const LinearGradient(colors: AppColors.buttonGradient,),
                 borderRadius: BorderRadius.circular(30),),
             alignment: Alignment.center,
             height: 50,
             width: 300,
             child:  Text( 
              title,
-              style:const TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                  fontWeight: FontWeight.w600,),
+              style: AppStyles.whiteButtonStyle,
             ),),);
   }
 }

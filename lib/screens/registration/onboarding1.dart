@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/date_input.dart';
-import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/gender_input.dart';
-import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/name_input.dart';
+import 'package:lose_it_calory_tracker/widgets/date_input.dart';
+import 'package:lose_it_calory_tracker/widgets/gender_input.dart';
+import 'package:lose_it_calory_tracker/widgets/name_input.dart';
 
 class OnboardingScreen1 extends StatelessWidget {
   static const routeName = '/OnboardingScreen';

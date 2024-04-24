@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lose_it_calory_tracker/screens/home_pages/settings_page/settings_page.dart';
+import 'package:lose_it_calory_tracker/screens/main_page_screens/settings_page/settings_page.dart';
 import 'package:lose_it_calory_tracker/widgets/onboarding2_widgets/custom_onboarding_sliding_segmented_control.dart';
 
 import '../../widgets/onboarding2_widgets/height_picker_widget.dart';

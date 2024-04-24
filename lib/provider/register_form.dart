@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:lose_it_calory_tracker/provider/height.dart';
-import 'package:lose_it_calory_tracker/provider/person.dart';
-import 'package:lose_it_calory_tracker/provider/weight.dart';
+import 'package:lose_it_calory_tracker/model/height.dart';
+import 'package:lose_it_calory_tracker/model/person.dart';
+import 'package:lose_it_calory_tracker/model/weight.dart';
 
-import '../widgets/onboarding1_widgets/gender_input.dart';
+import '../widgets/gender_input.dart';
 
 class RegisterForm with ChangeNotifier {
   Person person = Person(
-      name: null,
-      id: '1',
-      birthdate: null,
-      gender: Gender.male,
-      height: null,
-      weight: null,
-      aimweight: null,);
+    name: null,
+    id: '1',
+    birthdate: null,
+    gender: Gender.male,
+    height: null,
+    weight: null,
+    aimweight: null,
+  );
   void addPersonName(String name) {
     person.name = name;
     notifyListeners();
@@ -22,24 +23,27 @@ class RegisterForm with ChangeNotifier {
 
   void logOut() {
     person = Person(
-        name: null,
-        id: '1',
-        birthdate: null,
-        gender: Gender.male,
-        height: null,
-        weight: null,
-        aimweight: null,);
+      name: null,
+      id: '1',
+      birthdate: null,
+      gender: Gender.male,
+      height: null,
+      weight: null,
+      aimweight: null,
+    );
   }
 
   Future<void> addPerson(Person newperson) async {
     person = Person(
-        name: person.name,
-        id: '1',
-        birthdate: newperson.birthdate,
-        gender: newperson.gender,
-        height: newperson.height,
-        weight: newperson.weight,
-        aimweight: newperson.aimweight,);
+      name: person.name,
+      id: '1',
+      birthdate: newperson.birthdate,
+      gender: newperson.gender,
+      height: newperson.height,
+      weight: newperson.weight,
+      aimweight: newperson.aimweight,
+    );
+    notifyListeners();
   }
 
   void addPersonBirthday(DateTime birthdate) {
@@ -68,7 +72,8 @@ class RegisterForm with ChangeNotifier {
 
     notifyListeners();
     print(
-        'weight: l${person.weight?.lbWeight} s${person.weight?.stLbWeight.stone}.${person.weight?.stLbWeight.lb} k${person.weight?.kgWeight}',);
+      'weight: l${person.weight?.lbWeight} s${person.weight?.stLbWeight.stone}.${person.weight?.stLbWeight.lb} k${person.weight?.kgWeight}',
+    );
   }
 
   void addPersonaimWeight(Weight weight) {
@@ -76,6 +81,7 @@ class RegisterForm with ChangeNotifier {
 
     notifyListeners();
     print(
-        'aimweight: l${person.aimweight?.lbWeight} s${person.aimweight?.stLbWeight.stone}.${person.aimweight?.stLbWeight.lb} k${person.aimweight?.kgWeight}',);
+      'aimweight: l${person.aimweight?.lbWeight} s${person.aimweight?.stLbWeight.stone}.${person.aimweight?.stLbWeight.lb} k${person.aimweight?.kgWeight}',
+    );
   }
 }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:lose_it_calory_tracker/helper/app_colors.dart';
 import 'package:lose_it_calory_tracker/provider/auth.dart';
-import 'package:lose_it_calory_tracker/screens/home_pages/main_screen.dart';
+import 'package:lose_it_calory_tracker/screens/main_page_screens/main_screen.dart';
 import 'package:lose_it_calory_tracker/screens/registration/onboarding1.dart';
 import 'package:lose_it_calory_tracker/screens/registration/onboarding2.dart';
 import 'package:lose_it_calory_tracker/screens/registration/onboarding3.dart';
-import 'package:lose_it_calory_tracker/widgets/elevated_button_widget.dart';
+import 'package:lose_it_calory_tracker/widgets/custom_button.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/register_form.dart';
@@ -19,7 +20,9 @@ class MainOnboarding extends StatefulWidget {
   State<MainOnboarding> createState() => _MainOnboardingState();
 }
 
-class _MainOnboardingState extends State<MainOnboarding> { 
+class _MainOnboardingState extends State<MainOnboarding> {
+
+
   final PageController _pageController = PageController();
   @override
   void dispose() {
@@ -39,24 +42,23 @@ class _MainOnboardingState extends State<MainOnboarding> {
             action: () {
               if (_pageController.page == 0) {
                 Navigator.of(context).pop();
-              } else {
+              }else {
                 _pageController.previousPage(
-                    duration: const Duration(milliseconds: 200),
-                    curve: Curves.easeIn,);
+                  duration: const Duration(milliseconds: 200),
+                  curve: Curves.easeIn,
+                );
               }
             },
           ),
           Expanded(
             flex: 2,
             child: PageView(
-              
               allowImplicitScrolling: true,
               controller: _pageController,
               onPageChanged: (value) {
                 _pageIndex = value;
                 setState(() {});
               },
-             
               physics: const NeverScrollableScrollPhysics(),
               children: const [
                 OnboardingScreen1(),
@@ -66,95 +68,81 @@ class _MainOnboardingState extends State<MainOnboarding> {
             ),
           ),
           Expanded(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              PageDotsWidget(pageIndex: _pageIndex),
-              ElevatedButtonWidget(
-                text: 'Next',
-                action: () {
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                PageDotsWidget(pageIndex: _pageIndex),
+                CustomButton(
+                  text: 'Next',
+                  action: () {
+              
                   
-                  if (_pageController.page == 0) {
-                    if (person.name == null) {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text(
-                          "You haven't filled your name",
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        duration: Duration(seconds: 1),
-                        backgroundColor: Colors.red,
-                      ),);
-
-                      return;
-                    }
-                    if (person.birthdate == null) {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text(
+                    if (_pageController.page == 0) {
+                      if (person.name == null) {
+                        errorMessage(
+                            context, "You haven't chosen your birthdate",);
+                        return;
+                      }
+                      if (person.birthdate == null) {
+                        errorMessage(
+                          context,
                           "You haven't chosen your birthdate",
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        duration: Duration(seconds: 1),
-                        backgroundColor: Colors.red,
-                      ),);
+                        );
 
-                      return;
+                        return;
+                      }
                     }
-                  }
-                  if (_pageController.page == 1) {
-                    if (person.height == null) {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text(
-                          "You haven't determined your height",
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        duration: Duration(seconds: 1),
-                        backgroundColor: Colors.red,
-                      ),);
+                    if (_pageController.page == 1) {
+                      if (person.height == null) {
+                        errorMessage(
+                            context, "You haven't determined your height",);
 
-                      return;
-                      
+                        return;
+                      }
                     }
-                  }
-                  if (_pageController.page == 2) {
-                    if (person.weight == null) {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text(
-                          "You haven't determined your weight",
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        duration: Duration(seconds: 1),
-                        backgroundColor: Colors.red,
-                      ),);
+                    if (_pageController.page == 2) {
+                      if (person.weight == null) {
+                        errorMessage(
+                            context, "You haven't determined your weight",);
 
-                      return;
-                    }
-                    if (person.aimweight == null) {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text(
-                          "You haven't determined your aimweight",
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        duration: Duration(seconds: 1),
-                        backgroundColor: Colors.red,
-                      ),);
+                        return;
+                      }
+                      if (person.aimweight == null) {
+                        errorMessage(
+                            context, "You haven't determined your aimweight",);
 
-                      return;
+                        return;
+                      }
+
+                      Provider.of<Auth>(context, listen: false)
+                          .addPerson(person);
+                      Provider.of<Auth>(context, listen: false).logIn();
+                      Navigator.of(context).pushNamed(MainScreen.routeName);
                     }
-                   
-                    Provider.of<Auth>(context, listen: false).addPerson(person);
-                    Provider.of<Auth>(context, listen: false).logIn();
-                    Navigator.of(context).pushNamed(MainScreen.routeName);
-                  }
-                
-                  _pageController.nextPage(
+
+                    _pageController.nextPage(
                       duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeInOut,);
-                },
-              ),
-            ],
-          ),)
+                      curve: Curves.easeInOut,
+                    );
+                  },
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
   }
 }
+  void errorMessage(BuildContext context, String text) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          text,
+          style: const TextStyle(fontSize: 17),
+        ),
+        duration: const Duration(seconds: 1),
+        backgroundColor: AppColors.primaryColor,
+      ),
+    );
+  }

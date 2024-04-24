@@ -12,6 +12,12 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/Arrow - Left Circle.svg
+  String get arrowLeftCircle => 'assets/icons/Arrow - Left Circle.svg';
+
+  /// File path: assets/icons/Arrow - Right Circle.svg
+  String get arrowRightCircle => 'assets/icons/Arrow - Right Circle.svg';
+
   /// File path: assets/icons/ArrowStroke.svg
   String get arrowStroke => 'assets/icons/ArrowStroke.svg';
 
@@ -65,6 +71,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/berries.svg
   String get berries => 'assets/icons/berries.svg';
+
+  /// File path: assets/icons/blue_dot.svg
+  String get blueDot => 'assets/icons/blue_dot.svg';
 
   /// File path: assets/icons/bread.svg
   String get bread => 'assets/icons/bread.svg';
@@ -123,6 +132,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/fried-egg.svg
   String get friedEgg => 'assets/icons/fried-egg.svg';
 
+  /// File path: assets/icons/green_dot.svg
+  String get greenDot => 'assets/icons/green_dot.svg';
+
   /// File path: assets/icons/home.svg
   String get home => 'assets/icons/home.svg';
 
@@ -165,6 +177,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/redEllipse.svg
   String get redEllipse => 'assets/icons/redEllipse.svg';
 
+  /// File path: assets/icons/red_dot.svg
+  String get redDot => 'assets/icons/red_dot.svg';
+
   /// File path: assets/icons/remove.svg
   String get remove => 'assets/icons/remove.svg';
 
@@ -192,6 +207,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/termsOfUse.svg
   String get termsOfUse => 'assets/icons/termsOfUse.svg';
 
+  /// File path: assets/icons/tick.svg
+  String get tick => 'assets/icons/tick.svg';
+
   /// File path: assets/icons/tickedContainer.svg
   String get tickedContainer => 'assets/icons/tickedContainer.svg';
 
@@ -206,6 +224,8 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<String> get values => [
+        arrowLeftCircle,
+        arrowRightCircle,
         arrowStroke,
         camera,
         chart,
@@ -224,6 +244,7 @@ class $AssetsIconsGen {
         beans,
         beer,
         berries,
+        blueDot,
         bread,
         burger,
         cake,
@@ -243,6 +264,7 @@ class $AssetsIconsGen {
         frenchFries,
         friedChicken,
         friedEgg,
+        greenDot,
         home,
         honey,
         kiwi,
@@ -257,6 +279,7 @@ class $AssetsIconsGen {
         pumpkin,
         ramen,
         redEllipse,
+        redDot,
         remove,
         salad,
         salmon,
@@ -266,6 +289,7 @@ class $AssetsIconsGen {
         slim1,
         soup,
         termsOfUse,
+        tick,
         tickedContainer,
         unselectedButton,
         weightScale1,

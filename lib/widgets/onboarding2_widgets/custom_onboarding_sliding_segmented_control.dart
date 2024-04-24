@@ -16,7 +16,8 @@ class CustomOnboardingSlidingSegmentedControl extends StatefulWidget {
 }
 
 class _CustomOnboardingSlidingSegmentedControlState
-    extends State<CustomOnboardingSlidingSegmentedControl> with TickerProviderStateMixin {
+    extends State<CustomOnboardingSlidingSegmentedControl>
+    with TickerProviderStateMixin {
   late AnimationController _controller;
 
   int _selectedIndex = 0;
@@ -51,7 +52,7 @@ class _CustomOnboardingSlidingSegmentedControlState
       padding: const EdgeInsets.all(3.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.0),
-        color: Colors.grey[300],
+        color: const Color.fromRGBO(200, 200, 200, 200),
       ),
       child: Stack(
         children: [
@@ -80,10 +81,11 @@ class _CustomOnboardingSlidingSegmentedControlState
           ),
           AnimatedAlign(
             alignment: Alignment(
-                widget.children.length == 2
-                    ? _selectedIndex * 2 - 1
-                    : _selectedIndex * 1 - 1,
-                0,),
+              widget.children.length == 2
+                  ? _selectedIndex * 2 - 1
+                  : _selectedIndex * 1 - 1,
+              0,
+            ),
             curve: Curves.easeInOut,
             duration: const Duration(milliseconds: 300),
             child: Container(

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:lose_it_calory_tracker/provider/height.dart';
-import 'package:lose_it_calory_tracker/provider/person.dart';
-import 'package:lose_it_calory_tracker/provider/st_lb.dart';
-import 'package:lose_it_calory_tracker/provider/weight.dart';
-import 'package:lose_it_calory_tracker/widgets/onboarding1_widgets/gender_input.dart';
+import 'package:lose_it_calory_tracker/model/height.dart';
+import 'package:lose_it_calory_tracker/model/person.dart';
+import 'package:lose_it_calory_tracker/model/st_lb.dart';
+import 'package:lose_it_calory_tracker/model/weight.dart';
+import 'package:lose_it_calory_tracker/widgets/gender_input.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/auth.dart';
-import '../screens/home_pages/main_screen.dart';
+import '../screens/main_page_screens/main_screen.dart';
 
 class SafeAreaWidget extends StatelessWidget {
   final VoidCallback action;

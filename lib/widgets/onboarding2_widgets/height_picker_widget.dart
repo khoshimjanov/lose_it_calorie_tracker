@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lose_it_calory_tracker/provider/height.dart';
+import 'package:lose_it_calory_tracker/model/height.dart';
 import 'package:lose_it_calory_tracker/widgets/onboarding2_widgets/height_input_widget.dart';
 import 'package:lose_it_calory_tracker/widgets/onboarding3/weight_picker_item.dart';
 import 'package:provider/provider.dart';

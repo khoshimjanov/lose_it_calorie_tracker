@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:lose_it_calory_tracker/db_helper/db_helper.dart';
 import 'package:lose_it_calory_tracker/gen/assets.gen.dart';
-import 'package:lose_it_calory_tracker/provider/food.dart';
+import 'package:lose_it_calory_tracker/model/food.dart';
+
+enum LunchType {
+  breakfast('breakfast'),
+  lunch('lunch'),
+  dinner('dinner'),
+  snacks('snacks');
+
+  const LunchType(this.message);
+  final String message;
+}
 
 class Foods with ChangeNotifier {
   final List<Food> _foods = [
@@ -266,48 +277,223 @@ class Foods with ChangeNotifier {
       imageUrl: Assets.icons.acorn,
     ),
   ];
+
   List<Food> searchedFood = [];
+
   List<Food> brakfastFoods = [];
+  int get totalBreakfastCalorie {
+    int totalCalorie = 0;
+    for (int i = 0; i < brakfastFoods.length; i++) {
+      totalCalorie += brakfastFoods[i].totalCalorie();
+    }
+    return totalCalorie;
+  }
+
   List<Food> lunchFoods = [];
+  int get totalLunchCalorie {
+    int totalCalorie = 0;
+    for (int i = 0; i < lunchFoods.length; i++) {
+      totalCalorie += lunchFoods[i].totalCalorie();
+    }
+    return totalCalorie;
+  }
+
   List<Food> dinnerFoods = [];
+  int get totalDinnerCalorie {
+    int totalCalorie = 0;
+    for (int i = 0; i < dinnerFoods.length; i++) {
+      totalCalorie += dinnerFoods[i].totalCalorie();
+    }
+    return totalCalorie;
+  }
+
   List<Food> snackFoods = [];
+  int get totalSnacksCalorie {
+    int totalCalorie = 0;
+    for (int i = 0; i < snackFoods.length; i++) {
+      totalCalorie += snackFoods[i].totalCalorie();
+    }
+    return totalCalorie;
+  }
+
+  int get totalDailyCalorie {
+    final int totalCalorie = totalSnacksCalorie +
+        totalDinnerCalorie +
+        totalLunchCalorie +
+        totalBreakfastCalorie;
+    return totalCalorie;
+  }
+
   List<Food> get foods => _foods;
-  void addNewFood(Food newfood) {
-    _foods.add(newfood);
+
+  Food newFood = Food(
+    id: '',
+    name: '',
+    kcal: 0,
+    protein: 0,
+    fat: 0,
+    carb: 0,
+    imageUrl: Assets.icons.ramen,
+  );
+
+  void addNewFood() {
+    print("""id: ${newFood.id},
+        name: ${newFood.name},
+        kcal: ${newFood.kcal},
+        protein: ${newFood.protein},
+        fat: ${newFood.fat},
+        carb: ${newFood.carb},
+        imageUrl: ${newFood.imageUrl}""");
+
+    _foods.add(
+      Food(
+        id: '${_foods.length + 2}',
+        name: newFood.name,
+        kcal: newFood.kcal,
+        protein: newFood.protein,
+        fat: newFood.fat,
+        carb: newFood.carb,
+        imageUrl: newFood.imageUrl,
+      ),
+    );
+    DBHelper.addNewFood(
+      Food(
+        id: '${_foods.length + 2}',
+        name: newFood.name,
+        kcal: newFood.kcal,
+        protein: newFood.protein,
+        fat: newFood.fat,
+        carb: newFood.carb,
+        imageUrl: newFood.imageUrl,
+      ),
+    );
+    newFood = Food(
+      id: '',
+      name: '',
+      kcal: 0,
+      protein: 0,
+      fat: 0,
+      carb: 0,
+      imageUrl: Assets.icons.ramen,
+    );
     notifyListeners();
   }
 
   void searchFood(String name) {
+    if (name == '' || name == ' ' || name.isEmpty) {
+      searchedFood = [];
+      return;
+    }
+
     searchedFood = _foods
         .where((food) => food.name.toLowerCase().contains(name.toLowerCase()))
         .toList();
     notifyListeners();
   }
 
-  void addBreakFastFood(Food newfood) {
-    if (brakfastFoods.contains(newfood)) {
-      brakfastFoods.remove(newfood);
-    } else {
-      brakfastFoods.add(newfood);
+  void addMealFood(Food newfood, LunchType lunchType) {
+    switch (lunchType) {
+      case LunchType.breakfast:
+        if (brakfastFoods.contains(newfood)) {
+          brakfastFoods.remove(newfood);
+          DBHelper.deleteMeal(lunchType.message, newfood.id);
+        } else {
+          brakfastFoods.add(newfood);
+          DBHelper.addMealFood(lunchType, newfood);
+        }
+        break;
+      case LunchType.lunch:
+        if (lunchFoods.contains(newfood)) {
+          lunchFoods.remove(newfood);
+          DBHelper.deleteMeal(lunchType.message, newfood.id);
+        } else {
+          lunchFoods.add(newfood);
+          DBHelper.addMealFood(lunchType, newfood);
+        }
+        break;
+      case LunchType.dinner:
+        if (dinnerFoods.contains(newfood)) {
+          dinnerFoods.remove(newfood);
+          DBHelper.deleteMeal(lunchType.message, newfood.id);
+        } else {
+          dinnerFoods.add(newfood);
+          DBHelper.addMealFood(lunchType, newfood);
+        }
+        break;
+      case LunchType.snacks:
+        if (snackFoods.contains(newfood)) {
+          snackFoods.remove(newfood);
+          DBHelper.deleteMeal(lunchType.message, newfood.id);
+        } else {
+          snackFoods.add(newfood);
+          DBHelper.addMealFood(lunchType, newfood);
+        }
+        break;
     }
     notifyListeners();
   }
 
-  void removeBreakFastFood(Food newfood) {
-    brakfastFoods.remove(newfood);
+  void removeFood(Food newfood, LunchType lunchType) {
+    switch (lunchType) {
+      case LunchType.breakfast:
+        brakfastFoods.remove(newfood);
+        DBHelper.deleteMeal(lunchType.message, newfood.id);
+        break;
+      case LunchType.lunch:
+        lunchFoods.remove(newfood);
+        DBHelper.deleteMeal(lunchType.message, newfood.id);
+
+        break;
+      case LunchType.dinner:
+        dinnerFoods.remove(newfood);
+        DBHelper.deleteMeal(lunchType.message, newfood.id);
+
+        break;
+      case LunchType.snacks:
+        snackFoods.remove(newfood);
+        DBHelper.deleteMeal(lunchType.message, newfood.id);
+
+        break;
+    }
+
     notifyListeners();
   }
 
-  void addCalorie(String id) {
-    _foods.firstWhere((element) => element.id == id).weight += 100;
+  void addCalorie(Food food) {
+    try {  
+      _foods.firstWhere((element) => element.id == food.id).weight += 100;
+      DBHelper.mealupdate(food);
+    } catch (e) {
+      print("error:$e");
+    }
     notifyListeners();
   }
 
-  void removeCalorie(String id) {
-    if (_foods.firstWhere((element) => element.id == id).weight == 100) {
+  void removeCalorie(
+    Food food,
+  ) {
+    if (_foods.firstWhere((element) => element.id == food.id).weight == 100) {
       return;
     }
-    _foods.firstWhere((element) => element.id == id).weight -= 100;
+    _foods.firstWhere((element) => element.id == food.id).weight -= 100;
+    DBHelper.mealupdate(food);
+
+    notifyListeners();
+  }
+
+  Future<void> getNewFoods() async {
+    final List<Food> newFoods = await DBHelper.getFoods();
+    _foods.addAll([...newFoods]);
+    final List<List<Food>> mealFoods = await DBHelper.getMealFoods();
+    if (mealFoods.isEmpty) {
+      notifyListeners();
+      return;
+    }
+    brakfastFoods.addAll([...mealFoods[0]]);
+    lunchFoods.addAll([...mealFoods[1]]);
+    dinnerFoods.addAll([...mealFoods[2]]);
+    snackFoods.addAll([...mealFoods[3]]);
+
     notifyListeners();
   }
 }

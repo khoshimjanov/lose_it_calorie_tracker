@@ -4,7 +4,7 @@ import 'package:lose_it_calory_tracker/widgets/onboarding3/weight_choose_types/w
 import 'package:lose_it_calory_tracker/widgets/onboarding3/weight_choose_types/weight_lb_show.dart';
 import 'package:lose_it_calory_tracker/widgets/onboarding3/weight_choose_types/weight_stlb_show.dart';
 
-import '../../screens/home_pages/settings_page/settings_page.dart';
+import '../../screens/main_page_screens/settings_page/settings_page.dart';
 
 class WeightPickerWidget extends StatefulWidget {
   const WeightPickerWidget({super.key});

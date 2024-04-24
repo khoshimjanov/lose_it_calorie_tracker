@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lose_it_calory_tracker/helper/app_colors.dart';
 
 class WeightPickerItem extends StatelessWidget {
   final int valuelength;
@@ -29,7 +30,7 @@ class WeightPickerItem extends StatelessWidget {
           child: Text(
             text,
             style: const TextStyle(
-                fontSize: 23, color: Color.fromRGBO(125, 125, 125, 1),),
+                fontSize: 23, color:AppColors.greyColor),
           ),
         ),
         itemExtent: 50,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lose_it_calory_tracker/provider/st_lb.dart';
+import 'package:lose_it_calory_tracker/model/st_lb.dart';
 import 'package:provider/provider.dart';
 
 import '../../../provider/register_form.dart';
-import '../../../provider/weight.dart';
+import '../../../model/weight.dart';
 import '../weight_input_widget.dart';
 import '../weight_type_widgets.dart/weight_picker_classes.dart';
 

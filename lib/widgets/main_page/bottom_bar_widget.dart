@@ -19,8 +19,6 @@ class BottomBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTabBar(
       onTap: action,
-      // activeColor: Colors.red,
-      // backgroundColor: Colors.white,
       currentIndex: selectedIndex,
       border: const Border(top: BorderSide(color: Colors.red, width: 0.4)),
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lose_it_calory_tracker/helper/app_styles.dart';
 
 class WeightInput extends StatelessWidget {
   final bool isSettings;
@@ -27,9 +28,7 @@ class WeightInput extends StatelessWidget {
             ? Center(
                 child: Text(
                   weightText,
-                  style: const TextStyle(
-                    fontSize: 17,
-                  ),
+                  style:AppStyles.simpleTextStyle ,
                 ),
               )
             : Row(
@@ -37,15 +36,11 @@ class WeightInput extends StatelessWidget {
                 children: [
                   Text(
                     weightText,
-                    style: const TextStyle(
-                      fontSize: 17,
-                    ),
+                    style: AppStyles.simpleTextStyle,
                   ),
                   Text(
                     heightType,
-                    style: const TextStyle(
-                      fontSize: 17,
-                    ),
+                    style: AppStyles.simpleTextStyle,
                   ),
                 ],
               ),

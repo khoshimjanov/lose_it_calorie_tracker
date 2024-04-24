@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../provider/register_form.dart';
-import '../../../provider/st_lb.dart';
-import '../../../provider/weight.dart';
+import '../../../model/st_lb.dart';
+import '../../../model/weight.dart';
 import '../weight_input_widget.dart';
 import '../weight_type_widgets.dart/weight_picker_classes.dart';
 
@@ -13,20 +13,20 @@ class WeightKgWidget extends StatefulWidget {
 
   @override
   State<WeightKgWidget> createState() => _WeightKgWidgetState();
+ static StLb convertKgToStoneLb(double kg) {
+    final double totalLb = kg * 2.20462;
+    final int stone = (totalLb / 14).floor();
+    final double pounds = double.parse((totalLb % 14).toStringAsFixed(1));
+    return StLb(stone: stone, lb: pounds);
+  }
 }
 
 class _WeightKgWidgetState extends State<WeightKgWidget> {
   int _kg = 0;
   int _kgDouble = 0;
 
-  StLb convertKgToStoneLb(double kg) {
-    final double totalLb = kg * 2.20462;
-    final int stone = (totalLb / 14).floor();
-    final double pounds = double.parse((totalLb % 14).toStringAsFixed(1));
-    return StLb(stone: stone, lb: pounds);
-  }
 
-  double convertKgToLb(double kg) {
+ static double convertKgToLb(double kg) {
     final double lb = double.parse((kg * 2.20462).toStringAsFixed(1));
 
     return lb;
@@ -44,7 +44,7 @@ class _WeightKgWidgetState extends State<WeightKgWidget> {
                 Weight(
                   lbWeight: convertKgToLb(double.parse('$_kg.$_kgDouble')),
                   stLbWeight:
-                      convertKgToStoneLb(double.parse('$_kg.$_kgDouble')),
+                      WeightKgWidget.convertKgToStoneLb(double.parse('$_kg.$_kgDouble')),
                   kgWeight: double.parse('$_kg.$_kgDouble'),
                 ),
               );
@@ -57,7 +57,7 @@ class _WeightKgWidgetState extends State<WeightKgWidget> {
                 Weight(
                   lbWeight: convertKgToLb(double.parse('$_kg.$_kgDouble')),
                   stLbWeight:
-                      convertKgToStoneLb(double.parse('$_kg.$_kgDouble')),
+                     WeightKgWidget. convertKgToStoneLb(double.parse('$_kg.$_kgDouble')),
                   kgWeight: double.parse('$_kg.$_kgDouble'),
                 ),
               );

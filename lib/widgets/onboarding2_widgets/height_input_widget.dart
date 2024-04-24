@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lose_it_calory_tracker/helper/app_styles.dart';
 
 class HeightInput extends StatelessWidget {
   final VoidCallback action;
@@ -27,9 +28,7 @@ class HeightInput extends StatelessWidget {
             ? Center(
                 child: Text(
                   text,
-                  style: const TextStyle(
-                    fontSize: 17,
-                  ),
+                  style: AppStyles.simpleTextStyle,
                 ),
               )
             : Row(
@@ -37,15 +36,11 @@ class HeightInput extends StatelessWidget {
                 children: [
                   Text(
                     text,
-                    style: const TextStyle(
-                      fontSize: 17,
-                    ),
+                    style: AppStyles.simpleTextStyle,
                   ),
                   Text(
                     heightType,
-                    style: const TextStyle(
-                      fontSize: 17,
-                    ),
+                    style: AppStyles.simpleTextStyle,
                   ),
                 ],
               ),
